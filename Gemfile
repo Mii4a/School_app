@@ -21,6 +21,7 @@ gem 'turbolinks',   '5.0.1'
 gem 'jbuilder',     '2.7.0'
 
 gem 'slim'
+gem 'html2slim'
 gem 'bootsnap'
 
 group :production do
@@ -28,8 +29,14 @@ group :production do
 end
 
 group :development, :test do
-  gem 'sqlite3',      '1.3.13'
-  gem 'byebug', '9.0.6', platform: :mri
+  gem 'sqlite3',             '1.3.13'
+  gem 'byebug',              '9.0.6', platform: :mri
+  gem 'rspec-rails',         '~> 4.0.0.beta'
+  gem 'factory_bot_rails',   '5.0.2'
+  gem 'capybara'
+  gem 'webdrivers'
+  gem 'shoulda-matchers'
+  gem 'rspec-its'
 end
 
 group :development do
@@ -37,12 +44,9 @@ group :development do
   gem 'listen',                '3.1.5'
   gem 'spring',                '2.0.2'
   gem 'spring-watcher-listen', '2.0.1'
+  gem 'spring-commands-rspec'
 end
 
-group :development, :test do
-  # Note that rspec-rails 4.0 is still a beta release
-  gem 'rspec-rails', '~> 4.0.0.beta'
-end
 
 # Windows環境ではtzinfo-dataというgemを含める必要があります
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
