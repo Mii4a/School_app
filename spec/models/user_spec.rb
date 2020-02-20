@@ -35,5 +35,35 @@ RSpec.describe User, type: :model do
     end
   end
   
+  describe "#unique_name" do
+    it { is_expected.to validate_presence_of(:unique_name) }
+    it { is_expected.to validate_length_of(:unique_name).
+           is_at_least(5).
+           is_at_most(15) }
+    it "is invalid with less than 5 characters" do
+      user.unique_name = "a" * 4
+      expect(user).to be_invalid
+    end
+    it "is invalid with more than 15 characters" do
+      user.unique_name = "a" * 16
+      expect(user).to be_invalid
+    end
+    it "is expected to be unique" do
+      duplicate_user = user.dup
+      duplicate_user.unique_name = user.unique_name
+      user.save
+      expect(duplicate_user).to be_invalid
+    end
+  end
   
+  describe "#password" do
+    it "is invalid with blank password" do
+      user.password = user.password_confirmation = " " * 6
+      expect(user).to be_invalid
+    end
+    it "is invalid with less than a minimum length" do
+      user.password = user.password_confirmation = "a" * 5
+      expect(user).to be_invalid
+    end
+  end
 end
