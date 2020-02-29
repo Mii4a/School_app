@@ -14,6 +14,11 @@
   shared_examples "redirect to path" do |path|
     it { subject.call; expect(response).to redirect_to(path) }
   end
+  
+  # check the success of rendering
+  shared_examples "render to" do |path|
+    it { subject.call; expect(request.fullpath).to eq(path) }
+  end
 
   # create/update/delete model case
   shared_examples "create Model" do |model|

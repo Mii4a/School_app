@@ -7,10 +7,10 @@ RSpec.describe 'Users', type: :system do
     
     context "with valid information" do
       let(:user){ create(:user) }
-      before { login_as(user) }
+      before { system_login_as(user) }
       it { expect(page).to have_content "ログインに成功しました" }
       it " followed by logout" do
-        logout
+        system_logout
         expect(page).to have_content "ログアウトしました"
       end
     end
@@ -18,7 +18,7 @@ RSpec.describe 'Users', type: :system do
     
     context "with invalid information" do
       let(:user){ build(:invalid_user) }
-      before { login_as(user) }
+      before { system_login_as(user) }
       it { expect(page).to have_content "Eメール、またはパスワードに誤りがあります" }
     end
   end

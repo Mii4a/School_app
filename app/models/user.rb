@@ -2,8 +2,8 @@ class User < ApplicationRecord
     attr_accessor :remember_token
     before_save :downcase_email
     validates :name, presence: true,
-                     length:   { maximum: 15,
-                                 message: '15文字以下で入力してください' }
+                     length:   { maximum: 25,
+                                 message: '25文字以下で入力してください' }
     VALID_EMAIL_REGAX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
     validates :email, presence: true,
                       length:     { maximum: 255 },
@@ -16,6 +16,7 @@ class User < ApplicationRecord
                             uniqueness: true
     has_secure_password
     validates :password, presence: true,
+                         allow_nil: true,
                          length: { minimum: 6,
                                    message: "６文字以上入力してください"}
     

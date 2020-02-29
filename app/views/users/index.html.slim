@@ -1,0 +1,9 @@
+- provide(:title, "ユーザー")
+h1 ユーザー
+  
+= paginate @users
+  
+ul.users
+  == render @users
+
+= paginate @users
