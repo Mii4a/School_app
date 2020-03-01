@@ -4,7 +4,7 @@ RSpec.describe "Users", type: :request do
   
   let(:user){ create(:user) }
   let(:other_user){ create(:other_user) }
-  let(:other_user2){ build(:other_user2) }
+  let(:non_activated_user){ create(:non_activated_user) }
   
   valid_params = {name:  "Foo Bar",
                   unique_name: "foobar",
@@ -28,8 +28,8 @@ RSpec.describe "Users", type: :request do
       subject { Proc.new { post users_path,
                           params: { user: valid_params } } }
       it_behaves_like "create Model", User
-      it_behaves_like "redirect to path", '/users/1'
-      it_behaves_like "success message", "登録に成功しました。"
+      it_behaves_like "redirect to path", '/'
+      it_behaves_like "info message", "アカウント有効化のために、メールをご確認ください"
     end
   end
   

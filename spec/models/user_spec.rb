@@ -11,8 +11,8 @@ RSpec.describe User, type: :model do
   describe "#name" do
     it { is_expected.to validate_presence_of(:name) }
     it { is_expected.to validate_length_of(:name).
-           is_at_most(15).
-           with_message("15文字以下で入力してください")
+           is_at_most(25).
+           with_message("25文字以下で入力してください")
     }
   end
     
@@ -64,6 +64,14 @@ RSpec.describe User, type: :model do
     it "is invalid with less than a minimum length" do
       user.password = user.password_confirmation = "a" * 5
       expect(user).to be_invalid
+    end
+  end
+  
+  describe "authenticated?" do
+    context "with nil digest" do
+      it "returns false for a user" do
+        expect(user.authenticated?(:remember, '')).to be_falsy
+      end
     end
   end
 end

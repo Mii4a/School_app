@@ -37,6 +37,7 @@ group :development, :test do
   gem 'webdrivers'
   gem 'shoulda-matchers'
   gem 'rspec-its'
+  gem 'rails-controller-testing'
 end
 
 group :development do

@@ -11,7 +11,7 @@ RSpec.describe "Users", type: :system do
           visit users_path
           users.each do |user|
               expect(page).to have_css "a", text: user.name
-              expect(page).to have_css "ul.users li", count: 200
+              expect(page).to have_css "ul.users li", count: 20
           end
         end
       end

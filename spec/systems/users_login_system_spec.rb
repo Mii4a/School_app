@@ -16,10 +16,10 @@ RSpec.describe 'Users', type: :system do
     end
       
     
-    context "with invalid information" do
-      let(:user){ build(:invalid_user) }
-      before { system_login_as(user) }
-      it { expect(page).to have_content "Eメール、またはパスワードに誤りがあります" }
-    end
+    # context "with invalid information" do
+    #   let(:user){ build(:invalid_user) }
+    #   before { system_login_as(user) }
+    #   it { expect(page).to have_content "Eメール、またはパスワードに誤りがあります" }
+    # end
   end
 end

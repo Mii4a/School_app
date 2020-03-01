@@ -58,9 +58,19 @@ module TestHelper
       fill_in "ユーザー名", with: user.name
       fill_in "アカウントID", with: user.unique_name
       fill_in "Eメール", with: user.email
-      fill_in "パスワード", with: user.password.to_s
-      fill_in "パスワード（確認）", with: user.password.to_s
+      fill_in "パスワード", with: user.password
+      fill_in "パスワード（確認）", with: user.password
       click_button "保存する"
+  end
+  
+  # アカウントを有効化する
+  def system_activate(user, id = {}, options = {})
+    id = id[:id] || 1
+    user.activation_token ||= options[:activation_token]
+    user.email ||= options[:email]
+    visit edit_account_activation_path(user.activation_token,
+                                       email: user.email,
+                                       id: id)
   end
     
   # ログインする
@@ -75,6 +85,7 @@ module TestHelper
       click_button 'ログイン'
   end
 
+  #ログアウトする
   def system_logout
       click_link "アカウント"
       click_link 'ログアウト'

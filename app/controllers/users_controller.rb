@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   before_action :admin_user, only: :destroy
   
   def index
-    @users = User.page(params[:page]).per(20)
+    @users = User.feed.page(params[:page]).per(20)
   end
   
   def new
@@ -13,14 +13,15 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    redirect_to root_url and return unless @user.activated?
   end
   
   def create
     @user = User.new(user_params)
     if @user.save
-      log_in @user
-      flash[:success] = "登録に成功しました。"
-      redirect_to @user
+      @user.send_activation_email
+      flash[:info] = "アカウント有効化のために、メールをご確認ください"
+      redirect_to root_url
     else
       flash[:danger] = "登録に失敗しました。"
       render 'new'
@@ -71,4 +72,5 @@ class UsersController < ApplicationController
     def admin_user
       redirect_to(root_url) unless current_user.admin?
     end
+    
 end

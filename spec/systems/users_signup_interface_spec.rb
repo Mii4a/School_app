@@ -2,13 +2,35 @@ require 'rails_helper'
 
 RSpec.describe 'User', type: :system do
     
+    def setup
+      ActionMailer::Base.deliveries.clear
+    end
+    
     describe "Sign up" do
-      context "with valid information" do
-        let(:user){ build(:user) }
+      context "with valid information and account activation" do
+        let(:user){ build(:non_activated_user) }
         before { system_signup_as(user) }
-        it { expect(page).to have_content "登録に成功しました" }
-        it { expect(page).to have_css('h1', text: user.name) }
-        it { expect(page).not_to have_content "ログイン"}
+        it "checks some conditions " do
+          expect(page).to have_content "アカウント有効化のために、メールをご確認ください"
+          expect( ActionMailer::Base.deliveries.size ).to eq 1
+          expect(user.activated?).to be_falsy
+          # should not log in when not activated
+          system_login_as(user)
+          expect(current_path).to eq "/"
+          expect(page).to have_content "ログイン"
+          # should not log in with invalid activation token
+          system_activate(user, id:1, activation_token: "invalid token")
+          expect(current_path).to eq "/"
+          expect(page).to have_content "ログイン"
+          # should not log in with invalid email
+          system_activate(user, id:1, email: "invalid@email.com")
+          expect(current_path).to eq "/"
+          expect(page).to have_content "ログイン"
+          # should log in with valid information
+          system_activate(user, id:1)
+          expect(user.activated?)
+          expect(current_path).to eq '/'
+        end
       end
     
       context "with invaid information" do

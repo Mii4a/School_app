@@ -45,7 +45,17 @@
       it {subject.call; expect(flash[:success]).to eq(msg)}
   end
   
+  # flash[:info] case
+  shared_examples "info message" do |msg|
+      it {subject.call; expect(flash[:info]).to eq(msg)}
+  end
+  
   # flash[:danger] case
   shared_examples "error message" do |msg|
       it {subject.call; expect(flash[:danger]).to eq(msg)}
+  end
+  
+  # flash[:warning] case
+  shared_examples "warning message" do |msg|
+      it {subject.call; expect(flash[:warning]).to eq(msg)}
   end

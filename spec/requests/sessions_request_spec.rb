@@ -16,7 +16,7 @@ RSpec.describe "Sessions", type: :request do
                           params: {session: invalid_params } } }
         it_behaves_like "returns http success"
         it_behaves_like "error message", "Eメール、またはパスワードに誤りがあります"
-        it {expect(response.body).to include "Log in"}
+        it { expect(request.fullpath).to eq '/login' }
     end
   end
 end
