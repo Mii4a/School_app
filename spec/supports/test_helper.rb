@@ -61,7 +61,7 @@ module TestHelper
   def request_patch_new_password(user, options={})
     password = options[:password] || "foobar"
     password_confirmation = options[:password_confirmation] || password
-    patch password_reset_path(user.reset_token, email: user.email, id: user.id), 
+    patch password_reset_path(user.reset_token), 
     params: { email: user.email,
                user: { password: password,
                        password_confirmation: password_confirmation } }
