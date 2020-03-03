@@ -4,9 +4,7 @@ p こんにちは
   #{@user.name}
   さん
   
-p このメールは
-  strong アカウント有効化
-  用のメールです。以下のリンクをクリックしてください。
+p このメールはアカウント有効化用のメールです。以下のリンクをクリックしてください。
   
 = link_to "アカウント有効化", edit_account_activation_url(@user.activation_token,
                                                          email: @user.email )

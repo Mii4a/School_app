@@ -9,8 +9,8 @@ RSpec.describe 'User', type: :system do
     describe "Sign up" do
       context "with valid information and account activation" do
         let(:user){ build(:non_activated_user) }
-        before { system_signup_as(user) }
         it "checks some conditions " do
+          system_signup_as(user)
           expect(page).to have_content "アカウント有効化のために、メールをご確認ください"
           expect( ActionMailer::Base.deliveries.size ).to eq 1
           expect(user.activated?).to be_falsy
@@ -28,7 +28,6 @@ RSpec.describe 'User', type: :system do
           expect(page).to have_content "ログイン"
           # should log in with valid information
           system_activate(user, id:1)
-          expect(user.activated?)
           expect(current_path).to eq '/'
         end
       end

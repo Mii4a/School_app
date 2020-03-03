@@ -51,6 +51,22 @@ module TestHelper
     }
   end
   
+  # パスワードをリセットする
+  def request_password_reset(user, options = {})
+    email = options[:email] || user.email
+    post password_resets_path, params: { password_reset: { email: email } }
+  end
+  
+  # パスワードを更新する
+  def request_patch_new_password(user, options={})
+    password = options[:password] || "foobar"
+    password_confirmation = options[:password_confirmation] || password
+    patch password_reset_path(user.reset_token, email: user.email, id: user.id), 
+    params: { email: user.email,
+               user: { password: password,
+                       password_confirmation: password_confirmation } }
+  end
+  
   #System Spec
   #ユーザー登録する
   def system_signup_as(user)
