@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
   let(:user){ create(:user) }
   
   it "is expected to be valid" do
@@ -72,6 +71,13 @@ RSpec.describe User, type: :model do
       it "returns false for a user" do
         expect(user.authenticated?(:remember, '')).to be_falsy
       end
+    end
+  end
+  
+  describe "associated schools" do
+    it "should be destroyed" do
+      user.schools.create!(name: "学校")
+      expect{user.destroy}.to change(School, :count).by(-1)
     end
   end
 end

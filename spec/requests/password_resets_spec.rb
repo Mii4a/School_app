@@ -1,12 +1,9 @@
-
 require 'rails_helper'
 
 RSpec.describe "PasswordResets", type: :request do
+  let(:user) { create(:user) }
 
-let(:user){ create(:other_user) }
-
-include ActiveJob::TestHelper
-
+  include ActiveJob::TestHelper
 
   it "resets password" do
     perform_enqueued_jobs do
