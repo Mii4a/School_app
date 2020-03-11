@@ -1,1 +1,7 @@
 - provide(:title, "Home")
+- if logged_in?
+  .row
+    aside.col.s4
+      section.user_info
+        == render 'shared/user_info'
+

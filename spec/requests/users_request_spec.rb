@@ -54,7 +54,7 @@ RSpec.describe "Users", type: :request do
   describe "PATCH #update" do
     subject { Proc.new { patch_valid_information } }
     context "when not logged in" do
-      it_behaves_like "error message", "ログインしてください"
+      it_behaves_like "error message", "ログインして下さい"
       it_behaves_like "redirect to path", '/login'
     end
     

@@ -1,21 +1,21 @@
 FactoryBot.define do
     
     sequence :name do |n|
-        "Example User#{n}"
+        "Test User#{n}"
     end
     
     sequence :email do |n|
-        "example#{n}@user.com"
+        "test#{n}@user.com"
     end
     
     sequence :unique_name do |n|
-        "example_user#{n}"
+        "test_user#{n}"
     end
     
     factory :user , class: User do
-        name
-        unique_name
-        email
+        name 
+        unique_name 
+        email 
         password    { "password" }
         password_confirmation { "password" }
         admin      { true }

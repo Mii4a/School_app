@@ -1,23 +1,23 @@
-header class="navbar navbar-fixed-top navbar-inverse"
-  div.container
+header
+  div.nav-wrapper
     = link_to "Schoop", root_path, id: "logo"
-    nav
-      form class="navbar-form navbar-left" role="search"
-        div class="form-group"
-          input type
-      ul class="nav navbar-nav navbar-right"
+    nav.teal.lighten-2
+      ul.right.hide-on-med-and-down
         li = link_to "TOP", root_path
         li = link_to "ヘルプ", help_path
         - if logged_in?
-          li = link_to "Users", users_path
-          li.dropdown
-            a href="#" class="dropdown-toggle" data-toggle="dropdown"
-              |アカウント 
-              b.caret
-            ul.dropdown-menu
-              li = link_to "プロフィール", current_user
-              li = link_to "設定", edit_user_path(current_user)
-              li.divider
-              li = link_to "ログアウト", logout_path, method: "delete"
+          li
+            a class="dropdown-trigger" href="#!" data-target="dropdown1"
+             = current_user.name
+             i class="material-icons right"
+               ' arrow_drop_down
+          ul class="dropdown-content" id="dropdown1"
+            li = link_to "プロフィール", current_user
+            li = link_to "設定", edit_user_path(current_user)
+            li.divider
+            li = link_to "ログアウト", logout_path, method: "delete"
         - else
-            li = link_to "ログイン", login_path
+          li = link_to "ログイン", login_path
+            
+script
+ | $(".dropdown-trigger").dropdown();

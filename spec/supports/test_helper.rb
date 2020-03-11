@@ -67,6 +67,18 @@ module TestHelper
                        password_confirmation: password_confirmation } }
   end
   
+  # 学校を作る
+  def request_create_school(user)
+    post schools_path, params: {
+      school: {
+        sub_title: "テストデータ",
+        name: "テストデータ学園",
+        content: "テストデータ",
+        user_id: user.id
+      }
+    }
+  end
+  
   #System Spec
   #ユーザー登録する
   def system_signup_as(user)

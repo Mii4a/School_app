@@ -28,3 +28,17 @@ User.create!(name:        "Example User",
                  activated: true,
                  activated_at: Time.zone.now)
 end
+
+users = User.order(:created_at).take(6)
+20.times do |n|
+    sub_title = "Test data #{n}"
+    name = Faker::University.name
+    content = "I am number #{n}"
+    users.each do |user| 
+        user.schools.create!(
+            sub_title: sub_title,
+            name: name,
+            content: content
+        )
+    end
+end

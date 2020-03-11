@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_03_115311) do
+ActiveRecord::Schema.define(version: 2020_03_11_011250) do
 
   create_table "schools", force: :cascade do |t|
     t.text "sub_title"
@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 2020_03_03_115311) do
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "content"
     t.index ["user_id", "created_at"], name: "index_schools_on_user_id_and_created_at"
     t.index ["user_id"], name: "index_schools_on_user_id"
   end

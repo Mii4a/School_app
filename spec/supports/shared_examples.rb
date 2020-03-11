@@ -11,7 +11,7 @@
   end
 
   # redirect to path case
-  shared_examples "redirect to path" do |path|
+  shared_examples "redirect to" do |path|
     it { subject.call; expect(response).to redirect_to(path) }
   end
   
@@ -21,18 +21,17 @@
   end
 
   # create/update/delete model case
-  shared_examples "create Model" do |model|
+  shared_examples "create model" do |model|
     it { expect{subject.call}.to change{model.count}.by(1) }
   end
 
-  shared_examples "update Model" do |model|
-    it { expect{subject.call}.to change{model.count}.by(0) }
-  end
-
-  shared_examples "delete Model" do |model|
+  shared_examples "delete model" do |model|
     it { expect{subject.call}.to change{model.count}.by(-1) }
   end
   
+  shared_examples "not change model count" do |model|
+    it { expect{subject.call}.to change{model.count}.by(0) }
+  end
 
   # eq case
   shared_examples "assinged value is @value" do |value|

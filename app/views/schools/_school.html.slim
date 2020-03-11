@@ -1,0 +1,15 @@
+li id="school-#{ school.id }"
+  .school-header
+    = link_to gravatar_for(school.user, size: 50), school.user
+    .school-titles
+      span.subtitle
+        = school.sub_title
+      p.name
+        = school.name
+  p.user
+    = link_to school.user.name, school.user
+  p.content
+    = school.content
+  p.timestamp
+    = time_ago_in_words(school.created_at)
+    | 前

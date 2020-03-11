@@ -1,8 +1,13 @@
-  -provide(:title, @user.name)
-  div.row
-  
-    aside.col-md-4
-      section.user-info
-        h1
-          = gravatar_for @user
-          = @user.name
+- provide(:title, @user.name)
+.row
+  aside.col.s3
+    section.user-info
+      h1
+        = gravatar_for @user
+        = @user.name
+      p 学校 : #{@user.schools.count}個
+  div.col.s8
+    - if @user.schools.any?
+      ol.schools
+         == render @schools
+= paginate @schools

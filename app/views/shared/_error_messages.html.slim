@@ -1,7 +1,7 @@
-  - if @user.errors.any?
+  - if object.errors.any?
     #error_explanation
       .alert.alert_danger
-        = "#{@user.errors.count}つのエラーがあります"
+        = "#{object.errors.count}つのエラーがあります"
       ul
-        - @user.errors.full_messages.each do |msg|
+        - object.errors.full_messages.each do |msg|
           li = msg
