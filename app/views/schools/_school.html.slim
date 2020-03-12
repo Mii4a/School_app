@@ -6,6 +6,9 @@ li id="school-#{ school.id }"
         = school.sub_title
       p.name
         = school.name
+    ul
+      li = link_to "編集", edit_school_path(school)
+      li = link_to "削除", school, method: 'delete', data: { confirm: "本当に削除しますか?" }
   p.user
     = link_to school.user.name, school.user
   p.content

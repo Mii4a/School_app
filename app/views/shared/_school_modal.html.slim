@@ -1,0 +1,32 @@
+a class="wave-effect waves-light btn modal-trigger" href="#school-modal"
+  | 学校を作る
+div id="school-modal" class="modal"
+  = form_for(@school) do |f|
+    .modal-content
+      h4
+        i.material-icons.lighten2
+          | book
+        | 学校設立認可申請書
+      == render 'shared/error_messages', object: f.object
+  
+      = f.label :name, "学校名"
+      = f.text_field :name
+        
+      = f.label :sub_title, "サブタイトル（任意）"
+      = f.text_field :sub_title, placeholder: "アピールポイント等を記入してみましょう"
+      
+      = f.label :content, "学校について（任意）"
+      = f.text_area :content, class: "materialize-textarea", placeholder: "設立する学校の特徴などを書いてみましょう"
+      
+    .modal-footer
+      i.material-icons.left
+        | access_time
+      p = Time.current.to_date
+      = gravatar_for(current_user, size: 25)
+        | account_circle
+      p 学校長 #{current_user.name}
+      button class="btn waves-effect waves-light" type="submit" name="commit"
+        | 提出する
+        i class="material-icons right"
+          | send
+      

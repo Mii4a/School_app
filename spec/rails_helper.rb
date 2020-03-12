@@ -39,6 +39,7 @@ RSpec.configure do |config|
   config.render_views
   config.include FactoryBot::Syntax::Methods
   config.include TestHelper
+  # Capybara.javascript_driver = :webkit
   
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
   # examples within a transaction, remove the following line or assign false

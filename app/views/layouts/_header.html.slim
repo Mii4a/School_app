@@ -7,11 +7,11 @@ header
         li = link_to "ヘルプ", help_path
         - if logged_in?
           li
-            a class="dropdown-trigger" href="#!" data-target="dropdown1"
+            a class="dropdown-trigger" href="#!" data-target="header-dropdown"
              = current_user.name
              i class="material-icons right"
                ' arrow_drop_down
-          ul class="dropdown-content" id="dropdown1"
+          ul class="dropdown-content" id="header-dropdown"
             li = link_to "プロフィール", current_user
             li = link_to "設定", edit_user_path(current_user)
             li.divider

@@ -334,6 +334,42 @@ span.picture{
     }
 }
 
+// feed_items
+
+.feed_items {
+    list-style:none;
+    padding: 0;
+    :first-of-type{
+        border-top: none;
+    }
+    > li {
+        position: relative;
+        padding: 10px;
+        border-radius: 5px;
+        border-top: 1px solid #e8e8e8;
+        border-left: 1px solid #e8e8e8;
+        border-right: 1px solid #e8e8e8;
+    }
+    .school-header {
+        display: flex;
+    }
+    .name {
+        font-size: 1.2rem;
+        font-weight: bold;
+    }
+    .user {
+        font-size: 1.2rem;
+        padding-top: 0;
+    }
+    .school-contents {
+        color: $gray-light;
+        display: block;
+    }
+    .gravatar {
+        margin-right: 10px;
+    }
+}
+
 
 // miscellaneous
 

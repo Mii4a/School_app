@@ -102,22 +102,33 @@ module TestHelper
   end
     
   # ログインする
-  def system_login_as(user, options = {})
-    remember_me = options[:remember_me] || '1'
+  def system_login_as(user)
       visit login_path
       fill_in "Eメール", with: user.email
       fill_in "パスワード", with: 'password'
-      if remember_me == '1'
-        check "パスワードを保存する"
-      end
-      click_button 'ログイン'
+      click_button "ログイン"
   end
 
   #ログアウトする
   def system_logout
-      click_link "アカウント"
+      click_link user.name
       click_link 'ログアウト'
   end
   
-
+  # 学校を作る
+  def system_school_create(options={})
+    name = options[:name] || "School"
+    sub_title = options[:sub_title] || nil
+    content = options[:content] || nil
+    visit root_path
+    click_link "学校を作る"
+    fill_in "学校名", with: name
+    fill_in "サブタイトル", with: sub_title
+    fill_in "学校について", with: content
+    click_button "提出する"
+  end
+  
+  def system_school_destroy
+    click_on "削除"
+  end
 end

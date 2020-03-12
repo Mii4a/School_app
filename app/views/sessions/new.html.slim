@@ -4,6 +4,7 @@
   .row
     .col-md-6.col-md-offset-3
       = form_for(:session, url: login_path) do |f|
+        
       
         = f.label :email, "Eメール"
         = f.email_field :email, class: 'form-control'
@@ -13,9 +14,11 @@
         p = link_to " パスワードを忘れてしまった方はこちら", new_password_reset_path
         
         p
-          label
-            <input type="checkbox" name="session[remember_me]" id="session_remember_me" />
-              span パスワードを保存する
+          label class="checkbox inline active" for="session_remember_me"
+            input name="session[remember_me]" type="hidden" value="0"
+            input type="checkbox" name="session[remember_me]" id="session_remember_me" value="1"
+              span
+               | パスワードを保存する
 
         = f.submit "ログイン", class: 'btn btn-primary'
         = link_to "まだ登録していない場合はこちら", signup_path
