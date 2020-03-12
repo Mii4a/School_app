@@ -118,8 +118,8 @@ module TestHelper
   # 学校を作る
   def system_school_create(options={})
     name = options[:name] || "School"
-    sub_title = options[:sub_title] || nil
-    content = options[:content] || nil
+    sub_title = options[:sub_title] || "sub_title"
+    content = options[:content] || "content"
     visit root_path
     click_link "学校を作る"
     fill_in "学校名", with: name
@@ -131,4 +131,17 @@ module TestHelper
   def system_school_destroy
     click_on "削除"
   end
+  
+  def system_school_update(options={})
+    name = options[:name] || name
+    sub_title = options[:sub_title] || "sub_title"
+    content = options[:content] || "content"
+    visit edit_school_path(user)
+    fill_in "学校名", with: name
+    fill_in "サブタイトル", with: sub_title
+    fill_in "学校について", with: content
+    click_button "再提出する"
+  end
+    
+    
 end

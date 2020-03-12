@@ -6,7 +6,7 @@ RSpec.describe "School", type: :system, js: true do
   let(:other_user){ create(:other_user) }
 
   describe "Schools #create" do
-    it "checks presence of each articles" do
+    it "checks to see each items" do
         system_login_as(user)
         visit root_path
         click_link "学校を作る"
@@ -45,6 +45,26 @@ RSpec.describe "School", type: :system, js: true do
                   page.accept_confirm
                   expect(page).to have_content "削除に成功しました"
               }.to change(School, :count).by(-1)
+          end
+      end
+  end
+  
+  describe "School #update" do
+    before { system_login_as(user) }
+      it "check to see each items" do
+          system_school_create
+          visit edit_school_path(user)
+          expect(page).to have_content "学校名"
+          expect(page).to have_content "サブタイトル"
+          expect(page).to have_content "学校について"
+          page.has_button? "再提出する"
+      end
+      
+      context "with invalid information" do
+          it "render edit" do
+              system_school_create
+              system_school_update(name: "")
+              expect(page).to have_content "学校設定"
           end
       end
   end
