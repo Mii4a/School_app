@@ -7,9 +7,9 @@ li id="school-#{ school.id }"
       p.name
         = school.name
     - if school.user == current_user
-      span class="dropdown-trigger"
+      span class="dropdown-trigger" data-id="dropdown-trigger_#{school.id}"
         i.material-icons.right arrow_drop_down
-      ul.school-dropdown_content
+      ul class="school-dropdown_content" id="dropdown-content_#{school.id}"
         li = link_to "編集", edit_school_path(school)
         li = link_to "削除", school, method: 'delete', data: { confirm: "本当に削除しますか?" }
   p.user

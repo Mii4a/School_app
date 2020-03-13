@@ -44,6 +44,9 @@ javascript:
   
   //feed_items.school-triggerをクリック時、school-dropdown_contentを表示
   $('span.dropdown-trigger').on("click", function(){
-    $('.school-dropdown_content').toggle();
+    const trigger_id = $(this).data('id');
+    const id = trigger_id.match(/\d+/);
+    const content_id = "#dropdown-content_" + id;
+    $(content_id).toggle();
   });
   
