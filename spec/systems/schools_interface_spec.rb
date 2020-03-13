@@ -13,6 +13,7 @@ RSpec.describe "School", type: :system, js: true do
         expect(page).to have_content "学校名"
         expect(page).to have_content "サブタイトル"
         expect(page).to have_content "学校について"
+        expect(page).to have_content "学校写真"
         page.has_button?('提出する')
     end
     
@@ -81,10 +82,10 @@ RSpec.describe "School", type: :system, js: true do
           it "creates a school and then increase the count " do
               system_login_as(other_user)
               visit root_path
-              expect(page).to have_css '.user_info span', text: "0"
+              expect(page).to have_css '.user_profile p', text: "0"
               other_user.schools.create!(name: "other_user_school")
               visit root_path
-              page.has_css?('.user_info span', text: "1")
+              page.has_css?('.user_profile p', text: "1")
           end
       end
   end

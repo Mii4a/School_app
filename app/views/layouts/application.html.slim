@@ -19,6 +19,31 @@ html
       = debug(params) if Rails.env.development?
 
 javascript:
+  // modalの表示
   $(document).ready(function(){
     $('.modal').modal();
   });
+  
+  // DOM取得時にウィンドウ幅が600px以下だった場合にcol.s12に置き換える
+  window.onload = function(){
+    const smWindowSize = 600;
+    if (window.innerWidth <= smWindowSize){
+      $("div.col").removeClass("s9").addClass("s12");
+    }
+  }
+  
+  // ウィンドウ幅600px以下にresizeした場合col.12に置き換える
+  $(window).on("resize", function(){
+    const smWindowSize = 600;
+    if (window.innerWidth <=  smWindowSize){
+      $("div.col").removeClass("s9").addClass("s12");
+    } else {
+      $("div.col").removeClass("s12").addClass("s9");
+    }
+  });
+  
+  //feed_items.school-triggerをクリック時、school-dropdown_contentを表示
+  $('span.dropdown-trigger').on("click", function(){
+    $('.school-dropdown_content').toggle();
+  });
+  

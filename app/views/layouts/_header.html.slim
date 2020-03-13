@@ -11,7 +11,7 @@ header
              = current_user.name
              i class="material-icons right"
                ' arrow_drop_down
-          ul class="dropdown-content" id="header-dropdown"
+          ul class="dropdown-content" id="header-dropdown" style="top: 64px;"
             li = link_to "プロフィール", current_user
             li = link_to "設定", edit_user_path(current_user)
             li.divider
@@ -19,5 +19,3 @@ header
         - else
           li = link_to "ログイン", login_path
             
-script
- | $(".dropdown-trigger").dropdown();

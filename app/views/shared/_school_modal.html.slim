@@ -18,6 +18,10 @@ div id="school-modal" class="modal"
       = f.label :content, "学校について（任意）"
       = f.text_area :content, class: "materialize-textarea", placeholder: "設立する学校の特徴などを書いてみましょう"
       
+      span.picture
+        = f.label :picture, "学校写真"
+        = f.file_field :picture
+      
     .modal-footer
       i.material-icons.left
         | access_time
@@ -30,3 +34,10 @@ div id="school-modal" class="modal"
         i class="material-icons right"
           | send
       
+javascript:
+  $('#schook_picture').bind('change', function(){
+    var size_in_megabytes = this.file[0].size/1024/1024;
+    if (size_in_megabytes > 5) {
+      alert('5MB以上の写真は使用できません');
+    }
+  });

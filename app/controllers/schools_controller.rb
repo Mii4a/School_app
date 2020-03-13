@@ -38,7 +38,8 @@ before_action :correct_user, only: [:destroy, :edit, :update]
   def school_params
     params.require(:school).permit(:sub_title,
                                    :name,
-                                   :content)
+                                   :content,
+                                   :picture)
   end
   
   def correct_user

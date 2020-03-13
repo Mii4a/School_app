@@ -77,6 +77,8 @@ p {
     }
 }
 
+
+
 // footer
 
 footer{
@@ -131,7 +133,6 @@ aside {
         }
     }
     .user-profile{
-        height: 50px;
         margin-bottom: 15px;
     }
 }
@@ -320,13 +321,6 @@ input {
     }
 }
 
-aside {
-    textarea {
-        height: 100px;
-        margin-bottom: 5px;
-    }
-}
-
 span.picture{
     margin-top: 10px;
     input {
@@ -352,6 +346,9 @@ span.picture{
     }
     .school-header {
         display: flex;
+        .detail{
+            float: right;
+        }
     }
     .name {
         font-size: 1.2rem;
@@ -367,6 +364,24 @@ span.picture{
     }
     .gravatar {
         margin-right: 10px;
+    }
+    .dropdown-trigger{
+        position: absolute;
+        top: 10px;
+        right: 10px;
+    }
+    .school-dropdown_content{
+        display: none;
+        border-radius: 3px;
+        box-shadow: 0px 1px 2px 1px rgba(0, 0, 0, .2);
+        li{
+            font-size: 1rem;
+            padding: 8px;
+            transition: background-color .3s;
+            &:hover{
+                background-color: rgba(0, 0, 0, 0.1);
+            }
+        }
     }
 }
 

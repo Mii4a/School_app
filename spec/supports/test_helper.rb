@@ -125,6 +125,7 @@ module TestHelper
     fill_in "学校名", with: name
     fill_in "サブタイトル", with: sub_title
     fill_in "学校について", with: content
+    attach_file "学校写真", "../imgs/school.jpeg"
     click_button "提出する"
   end
   
