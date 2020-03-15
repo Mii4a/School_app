@@ -7,11 +7,23 @@ li id="school-#{ school.id }"
       p.name
         = school.name
     - if school.user == current_user
-      span class="dropdown-trigger" data-id="dropdown-trigger_#{school.id}"
-        i.material-icons.right arrow_drop_down
+      a class="school-dropdown_trigger trigger" data-id="#dropdown-content_#{school.id}"
+        i.material-icons
+          |arrow_drop_down
       ul class="school-dropdown_content" id="dropdown-content_#{school.id}"
-        li = link_to "編集", edit_school_path(school)
-        li = link_to "削除", school, method: 'delete', data: { confirm: "本当に削除しますか?" }
+        li
+          = link_to school, class: "delete",  method: 'delete', data: { confirm: "本当に削除しますか?" } do
+           i.material-icons delete_forever
+           | 削除
+        li
+          = link_to edit_school_path(school) do
+            i.material-icons folder_shared
+            | 編集
+        li.divider
+        li
+          a class="trigger" data-id="#dropdown-content_#{school.id}"
+            i.material-icons arrow_upward
+            | 閉じる
   p.user
     = link_to school.user.name, school.user
   p.content

@@ -19,6 +19,9 @@ html
       = debug(params) if Rails.env.development?
 
 javascript:
+  // header-dropdown
+  $(".dropdown-trigger").dropdown();
+  
   // modalの表示
   $(document).ready(function(){
     $('.modal').modal();
@@ -42,11 +45,25 @@ javascript:
     }
   });
   
-  //feed_items.school-triggerをクリック時、school-dropdown_contentを表示
-  $('span.dropdown-trigger').on("click", function(){
-    const trigger_id = $(this).data('id');
-    const id = trigger_id.match(/\d+/);
-    const content_id = "#dropdown-content_" + id;
-    $(content_id).toggle();
+  //triggerをクリック時、school-dropdown_contentを表示
+  $('.trigger').click(function(){
+    const content= $(this).data('id');
+    $(content).slideToggle(50);
+    });
+  
+  //school-dropdown_content表示時かつ、school-dropdown_content以外をクリックしたら
+  //school-dropdown_contentを閉じる。
+  $(document).click(function(){
+    const content= $('.trigger').data('id');
+    $(content).hover(function(){
+      over_flg = true;
+    }, function(){
+      over_flg = false;
+    });
+    if (over_flg == false){
+      $(content).removeClass('active');
+      $(content).slideToggle(50);
+    }
+    over_flg = true;
   });
   

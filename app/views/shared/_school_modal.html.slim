@@ -3,10 +3,6 @@ a class="wave-effect waves-light btn modal-trigger" href="#school-modal"
 div id="school-modal" class="modal"
   = form_for(@school) do |f|
     .modal-content
-      h4
-        i.material-icons.lighten2
-          | book
-        | 学校設立認可申請書
       == render 'shared/error_messages', object: f.object
   
       = f.label :name, "学校名"
