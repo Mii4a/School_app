@@ -45,25 +45,46 @@ javascript:
     }
   });
   
-  //triggerをクリック時、school-dropdown_contentを表示
-  $('.trigger').click(function(){
-    const content= $(this).data('id');
-    $(content).slideToggle(50);
-    });
+  // $('.trigger').click(function(){
+  //   var content = $(this).data('id');
+  //     $(content).slideToggle(50);
+  //     $(content).toggleClass('content-active');
+  // });
   
-  //school-dropdown_content表示時かつ、school-dropdown_content以外をクリックしたら
-  //school-dropdown_contentを閉じる。
-  $(document).click(function(){
-    const content= $('.trigger').data('id');
-    $(content).hover(function(){
-      over_flg = true;
-    }, function(){
-      over_flg = false;
-    });
-    if (over_flg == false){
-      $(content).removeClass('active');
+  // $('.content-active').hover(function(){
+  //   var content = $('.content-active');
+  //   $(content).addClass('content-hover_active');
+  // });
+  
+  // $(document).click(function(){
+  //     contentActive = content.attr('class', 'content-active');
+  //     contentHoverActive = content.attr('class', 'content-hover_active');
+  //   if (contentActive && !contentHoverActive){
+  //     $(content).slideToggle(50);
+  //     $(content).removeClass('content-hover_active');
+  //   }
+  // });
+  
+  
+  //school slide menu
+    //triggerをクリック時、school-dropdown_contentを表示
+  $('.trigger').on('click',function(){
+    var content = $(this).data('id');
+    $(content).toggleClass('.active');
+    var activeContents = [];
+    $('.active').each(function(){
+      id = $(this).attr("id");
+      activeContents.push(id);
+      if (activeContents.length == 2){
+        activatedContents = $(activeContents[0]);
+        $(activatedContents).slideToggle(50).removeClass('active');
+        $(content).slideToggle(50);
+      } else if (activeContents.length == 1){
       $(content).slideToggle(50);
-    }
-    over_flg = true;
+      console.log(activeContents.length);
+      }
+    });
   });
+  
+    
   

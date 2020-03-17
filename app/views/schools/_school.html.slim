@@ -9,7 +9,7 @@ li id="school-#{ school.id }"
     - if school.user == current_user
       a class="school-dropdown_trigger trigger" data-id="#dropdown-content_#{school.id}"
         i.material-icons
-          |arrow_drop_down
+          | arrow_drop_down
       ul class="school-dropdown_content" id="dropdown-content_#{school.id}"
         li
           = link_to school, class: "delete",  method: 'delete', data: { confirm: "本当に削除しますか?" } do
