@@ -39,51 +39,17 @@ javascript:
   $(window).on("resize", function(){
     const smWindowSize = 600;
     if (window.innerWidth <=  smWindowSize){
-      $("div.col").removeClass("s9").addClass("s12");
+      $("div.col").removeClass("s6").addClass("s12");
     } else {
       $("div.col").removeClass("s12").addClass("s9");
     }
   });
   
-  // $('.trigger').click(function(){
-  //   var content = $(this).data('id');
-  //     $(content).slideToggle(50);
-  //     $(content).toggleClass('content-active');
-  // });
-  
-  // $('.content-active').hover(function(){
-  //   var content = $('.content-active');
-  //   $(content).addClass('content-hover_active');
-  // });
-  
-  // $(document).click(function(){
-  //     contentActive = content.attr('class', 'content-active');
-  //     contentHoverActive = content.attr('class', 'content-hover_active');
-  //   if (contentActive && !contentHoverActive){
-  //     $(content).slideToggle(50);
-  //     $(content).removeClass('content-hover_active');
-  //   }
-  // });
-  
-  
   //school slide menu
     //triggerをクリック時、school-dropdown_contentを表示
   $('.trigger').on('click',function(){
     var content = $(this).data('id');
-    $(content).toggleClass('.active');
-    var activeContents = [];
-    $('.active').each(function(){
-      id = $(this).attr("id");
-      activeContents.push(id);
-      if (activeContents.length == 2){
-        activatedContents = $(activeContents[0]);
-        $(activatedContents).slideToggle(50).removeClass('active');
-        $(content).slideToggle(50);
-      } else if (activeContents.length == 1){
-      $(content).slideToggle(50);
-      console.log(activeContents.length);
-      }
-    });
+    $(content).slideToggle(50);
   });
   
     

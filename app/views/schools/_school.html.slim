@@ -1,34 +1,35 @@
 li id="school-#{ school.id }"
-  .school-header
-    = link_to gravatar_for(school.user, size: 50), school.user
-    .school-titles
-      span.subtitle
-        = school.sub_title
-      p.name
-        = school.name
-    - if school.user == current_user
-      a class="school-dropdown_trigger trigger" data-id="#dropdown-content_#{school.id}"
-        i.material-icons
-          | arrow_drop_down
-      ul class="school-dropdown_content" id="dropdown-content_#{school.id}"
-        li
-          = link_to school, class: "delete",  method: 'delete', data: { confirm: "本当に削除しますか?" } do
-           i.material-icons delete_forever
-           | 削除
-        li
-          = link_to edit_school_path(school) do
-            i.material-icons folder_shared
-            | 編集
-        li.divider
-        li
-          a class="trigger" data-id="#dropdown-content_#{school.id}"
-            i.material-icons arrow_upward
-            | 閉じる
-  p.user
-    = link_to school.user.name, school.user
-  p.content
-    = image_tag school.picture.url if school.picture?
-    p = school.content
-  p.timestamp
-    = time_ago_in_words(school.created_at)
-    | 前
+    .school-header
+      = link_to gravatar_for(school.user, size: 50), school.user
+      .school-titles
+        span.subtitle
+          = link_to school.sub_title, school
+        p.name
+          = link_to school.name, school
+      - if school.user == current_user
+        a class="school-dropdown_trigger trigger" data-id="#dropdown-content_#{school.id}"
+          i.material-icons
+            | arrow_drop_down
+        ul class="school-dropdown_content" id="dropdown-content_#{school.id}"
+          li
+            = link_to school, class: "delete",  method: 'delete', data: { confirm: "本当に削除しますか?" } do
+             i.material-icons delete_forever
+             | 削除
+          li
+            = link_to edit_school_path(school) do
+              i.material-icons folder_shared
+              | 編集
+          li.divider
+          li
+            a class="trigger" data-id="#dropdown-content_#{school.id}"
+              i.material-icons arrow_upward
+              | 閉じる
+    p.user
+      = link_to school.user.name, school.user
+    p.school-img
+      = image_tag school.picture.url if school.picture?
+    p.content
+      = school.content
+    p.timestamp
+      = time_ago_in_words(school.created_at)
+      | 前

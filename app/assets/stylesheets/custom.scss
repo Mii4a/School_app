@@ -231,6 +231,12 @@ input {
         .detail{
             float: right;
         }
+        .subtitle a {
+            color: #333;
+        }
+        .name a {
+            color: #333;
+        }
     }
     .name {
         font-size: 1.2rem;
@@ -243,6 +249,15 @@ input {
     .gravatar {
         margin-right: 10px;
     }
+    .school-img {
+       img {
+           text-align: center;
+           width: auto;
+           height: auto;
+           max-width: 100%;
+           max-height: 100%;
+       }
+   }
    .school-contents {
         color: $gray-light;
         display: block;
@@ -344,10 +359,21 @@ span.picture{
         &:nth-of-type(1) {
         border-top: none;
         }
+        &:hover{
+            background-color: rgba(0, 0, 0, .05);
+            cursor: pointer;
+        }
     }
     .school-header {
         display: flex;
-        .detail{
+        text-decoration: none;
+        .subtitle a {
+            color: #333;
+        }
+        .name a {
+            color: #333;
+        }
+        .detail {
             float: right;
         }
     }
@@ -362,10 +388,15 @@ span.picture{
     .gravatar {
         margin-right: 10px;
     }
-   .school-contents {
-        color: $gray-light;
-        display: block;
-    }
+   .school-img {
+       img {
+           text-align: center;
+           width: auto;
+           height: auto;
+           max-width: 100%;
+           max-height: 100%;
+       }
+   }
     .school-dropdown_trigger{
         width: 25px;
         height: 25px;
@@ -376,16 +407,24 @@ span.picture{
             background-color: rgba(0, 0, 0, .1);
         }
     }
+    .timestamp {
+        color: #aaa;
+        position: absolute;
+        right: 45px;
+        top: 10px;
+        z-index: 1;
+    }
 }
 
 .school-dropdown_content {
-    display: none;
-    position: absolute;
-    top: 10px;
-    right: 10px;
     background-color: #fff;
     border-radius: 3px;
     box-shadow: 0px 1px 2px 1px rgba(0, 0, 0, .2);
+    display: none;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    z-index: 2;
     li {
         width: 120px;
         transition: background-color .3s;
