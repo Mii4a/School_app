@@ -1,0 +1,8 @@
+- provide(:title, @school.name)
+
+.row
+  aside.col.s3.hide-on-small-only
+    section.user_info
+      == render 'shared/user_info'
+  div.col.s6
+    == render 'schools/profile'

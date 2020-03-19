@@ -1,7 +1,7 @@
 - provide(:title, "Home")
 - if logged_in?
   .row
-    aside.col.s3.hide-on-small-and-down
+    aside.col.s3.hide-on-small-only
       section.user_info
         == render 'shared/user_info'
     div class="col s9" id="feed-items_content"

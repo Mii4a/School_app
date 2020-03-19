@@ -27,7 +27,7 @@ RSpec.describe "Users", type: :request do
       before { get signup_path }
       subject { Proc.new { post users_path,
                           params: { user: valid_params } } }
-      it_behaves_like "create Model", User
+      it_behaves_like "create model", User
       it_behaves_like "redirect to path", '/'
       it_behaves_like "info message", "アカウント有効化のために、メールをご確認ください"
     end
@@ -38,7 +38,7 @@ RSpec.describe "Users", type: :request do
     
     context "when not logged in" do
       it_behaves_like "error message", "ログインしてください"
-      it_behaves_like "redirect to path", '/login'
+      it_behaves_like "redirect to", '/login'
     end
     
     context "when logged in as wrong user" do

@@ -1,6 +1,6 @@
 li id="school-#{ school.id }"
     .school-header
-      = link_to gravatar_for(school.user, size: 50), school.user
+      = image_tag school.picture.url if school.picture?
       .school-titles
         span.subtitle
           = link_to school.sub_title, school
@@ -17,19 +17,20 @@ li id="school-#{ school.id }"
              | 削除
           li
             = link_to edit_school_path(school) do
-              i.material-icons folder_shared
+              i.material-icons edit
               | 編集
           li.divider
           li
             a class="trigger" data-id="#dropdown-content_#{school.id}"
               i.material-icons arrow_upward
               | 閉じる
-    p.user
-      = link_to school.user.name, school.user
     p.school-img
       = image_tag school.picture.url if school.picture?
     p.content
       = school.content
+    p.user
+      = link_to gravatar_for(@school.user, size: 50), @school.user
+      = link_to school.user.name, school.user
     p.timestamp
       = time_ago_in_words(school.created_at)
       | 前

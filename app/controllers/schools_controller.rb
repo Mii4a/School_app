@@ -23,6 +23,10 @@ before_action :correct_user, only: [:destroy, :edit, :update]
   def edit
   end
   
+  def show
+    @school = current_user.schools.find(params[:id])
+  end
+  
   def update
     if @school.update_attributes(school_params)
       flash[:success] = "更新しました"
