@@ -3,8 +3,8 @@ before_action :logged_in_user, only: [:create, :destroy, :edit, :update]
 before_action :correct_user, only: [:destroy, :edit, :update]
   
   def create
-    @school = current_user.schools.build(school_params)
-    if @school.save
+    @school_build = current_user.schools.build(school_params)
+    if @school_build.save
       flash[:success] = "新しい学校を設立しました！"
       redirect_to root_url
     else

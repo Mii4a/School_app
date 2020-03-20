@@ -9,7 +9,7 @@ RSpec.describe "School", type: :system, js: true do
     it "checks to see each items" do
         system_login_as(user)
         visit root_path
-        click_link "学校を作る"
+        click_on "学校を作る"
         expect(page).to have_content "学校名"
         expect(page).to have_content "サブタイトル"
         expect(page).to have_content "学校について"
