@@ -1,12 +1,12 @@
 .school-profile
-  .school-profile_header
-    = link_to gravatar_for(@school.user, size: 50), @school.user
-    .titles
-      .subtitle
-        span = @school.sub_title
-      .name
-        p = @school.name
-    - if @school.user == current_user
+    .school-header
+      = image_tag @school.picture.url if @school.picture?
+      .school-titles
+        span.subtitle
+          = link_to @school.sub_title, @school
+        p.name
+          = link_to @school.name, @school
+      - if @school.user == current_user
         a class="school-dropdown_trigger trigger" data-id="#dropdown-content_#{@school.id}"
           i.material-icons
             | arrow_drop_down
@@ -24,9 +24,13 @@
             a class="trigger" data-id="#dropdown-content_#{@school.id}"
               i.material-icons arrow_upward
               | 閉じる
-  .school-profile_content
-    .school-img
+    p.school-img
       = image_tag @school.picture.url if @school.picture?
+    p.content
+      = @school.content
     p.user
-      = @school.user.name
-    
+      = link_to gravatar_for(@school.user, size: 50), @school.user
+      = link_to @school.user.name, @school.user
+    p.timestamp
+      = time_ago_in_words(@school.created_at)
+      | 前

@@ -163,6 +163,7 @@ aside {
 }
 
 .gravatar {
+    border-radius: 50%;
     float: left;
     margin: 0 10px 10px 0;
 }
@@ -275,17 +276,29 @@ input {
         &:nth-of-type(1) {
         border-top: none;
         }
+        &:hover{
+            background-color: rgba(0, 0, 0, .05);
+            cursor: pointer;
+        }
     }
     .school-header {
         display: flex;
-        .detail{
-            float: right;
+        margin-bottom: 10px;
+        text-decoration: none;
+        > img {
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            margin: 0 10px 10px 0;
         }
         .subtitle a {
             color: #333;
         }
         .name a {
             color: #333;
+        }
+        .detail {
+            float: right;
         }
     }
     .name {
@@ -297,21 +310,23 @@ input {
         padding-top: 0;
     }
     .gravatar {
-        margin-right: 10px;
+        height: 20px;
+        margin-bottom: 0;
+        margin-right: 8px;
+        position: relative;
+        top: 4px;
+        width: 20px;
     }
-    .school-img {
+   .school-img {
        img {
-           text-align: center;
-           width: auto;
+           border-radius: 5px;
            height: auto;
            max-width: 100%;
            max-height: 100%;
+           text-align: center;
+           width: auto;
        }
    }
-   .school-contents {
-        color: $gray-light;
-        display: block;
-    }
     .school-dropdown_trigger{
         width: 25px;
         height: 25px;
@@ -322,12 +337,12 @@ input {
             background-color: rgba(0, 0, 0, .1);
         }
     }
-    .school-contents {
-        color: $gray-light;
-        display: block;
-    }
-    .gravatar {
-        margin-right: 10px;
+    .timestamp {
+        color: #aaa;
+        position: absolute;
+        right: 45px;
+        top: 10px;
+        z-index: 1;
     }
 }
 
@@ -360,6 +375,88 @@ input {
     //     bottom: 20px;
     // }
   }
+}
+
+
+// school-profile
+
+.school-profile {
+    position: relative;
+    padding: 10px;
+    border-radius: 5px;
+    border-top: 1px solid #e8e8e8;
+    border-left: 1px solid #e8e8e8;
+    border-right: 1px solid #e8e8e8;
+    &:nth-of-type(1) {
+    border-top: none;
+    }
+    &:hover{
+        background-color: rgba(0, 0, 0, .05);
+        cursor: pointer;
+    }
+    .school-header {
+        display: flex;
+        margin-bottom: 10px;
+        text-decoration: none;
+        > img {
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            margin: 0 10px 10px 0;
+        }
+        .subtitle a {
+            color: #333;
+        }
+        .name a {
+            color: #333;
+        }
+        .detail {
+            float: right;
+        }
+    }
+    .name {
+        font-size: 1.2rem;
+        font-weight: bold;
+    }
+    .user {
+        font-size: 1.2rem;
+        padding-top: 0;
+    }
+    .gravatar {
+        height: 20px;
+        margin-bottom: 0;
+        margin-right: 8px;
+        position: relative;
+        top: 4px;
+        width: 20px;
+    }
+   .school-img {
+       img {
+           border-radius: 5px;
+           height: auto;
+           max-width: 100%;
+           max-height: 100%;
+           text-align: center;
+           width: auto;
+       }
+   }
+    .school-dropdown_trigger{
+        width: 25px;
+        height: 25px;
+        margin-left: auto;
+        border-radius: 50%;
+        transition: background-color .3s;
+        &:hover {
+            background-color: rgba(0, 0, 0, .1);
+        }
+    }
+    .timestamp {
+        color: #aaa;
+        position: absolute;
+        right: 45px;
+        top: 10px;
+        z-index: 1;
+    }
 }
 
 // microposts
@@ -416,8 +513,10 @@ span.picture{
     }
     .school-header {
         display: flex;
+        margin-bottom: 10px;
         text-decoration: none;
         > img {
+            border-radius: 50%;
             width: 50px;
             height: 50px;
             margin: 0 10px 10px 0;
@@ -450,11 +549,12 @@ span.picture{
     }
    .school-img {
        img {
-           text-align: center;
-           width: auto;
+           border-radius: 5px;
            height: auto;
            max-width: 100%;
            max-height: 100%;
+           text-align: center;
+           width: auto;
        }
    }
     .school-dropdown_trigger{

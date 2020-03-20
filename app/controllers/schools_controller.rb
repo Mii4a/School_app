@@ -25,6 +25,7 @@ before_action :correct_user, only: [:destroy, :edit, :update]
   
   def show
     @school = current_user.schools.find(params[:id])
+    @school_build = current_user.schools.build
   end
   
   def update

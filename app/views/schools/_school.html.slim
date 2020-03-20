@@ -29,7 +29,7 @@ li id="school-#{ school.id }"
     p.content
       = school.content
     p.user
-      = link_to gravatar_for(@school.user, size: 50), @school.user
+      = link_to gravatar_for(school.user, size: 50), school.user
       = link_to school.user.name, school.user
     p.timestamp
       = time_ago_in_words(school.created_at)
