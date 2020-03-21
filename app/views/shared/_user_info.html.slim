@@ -1,12 +1,13 @@
 .user-profile
-  h1 
-    = link_to gravatar_for(current_user, size: 50), current_user
+  = link_to gravatar_for(current_user, size: 50), current_user
+  h1
     = current_user.name
-  p 学校 : #{current_user.schools.count}個
-== render 'shared/school_modal'
+    p.unique_name 
+      | @#{current_user.unique_name}
+.school-modal
+  == render 'shared/school_modal'
 ul.sidebar-nav.show-on-medium
   - if logged_in?
-    ul.sidebar-nav
       li = link_to current_user do
         i.material-icons account_circle
         | プロフィール

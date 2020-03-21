@@ -1,13 +1,12 @@
 - provide(:title, @user.name)
 .row
-  aside.col.s3
-    p 
+  aside.col.s3.sidebar
     section.user-info
       h1
         = gravatar_for @user
-        = @user.name
-      p 学校 : #{@user.schools.count}個
-  div.col.s8
+        p = @user.name
+    p 学校 : #{@user.schools.count}個
+  div.col.s9
     - if @user.schools.any?
       ol.schools
          == render @schools

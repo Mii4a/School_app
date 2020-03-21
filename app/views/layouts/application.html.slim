@@ -17,44 +17,56 @@ html
       == yield
       == render 'layouts/footer'
       = debug(params) if Rails.env.development?
-ul id="slide-out" class="sidenav"
-  li
-    a href="#!"
-      | First Sidebar Link
-  li
-    a href="#!"
-      | Second Sidebar Link
-a href="#" data-target="slide-out" class="sidenav-trigger show-on-small"
+ul id="slide-out" class="sidenav user_info sidebar"
+  li.user_info
+    .user-name
+       = link_to gravatar_for(current_user, size: 50), current_user
+       h1
+        = current_user.name
+        p.unique_name 
+          | @#{current_user.unique_name}
+    ul.sidebar-nav.show-on-medium
+      - if logged_in?
+          li = link_to current_user do
+            i.material-icons account_circle
+            | プロフィール
+          li = link_to edit_user_path(current_user) do
+            i.material-icons folder_shared
+            | 設定
+          li.divider
+          li = link_to logout_path, method: "delete" do
+            i.material-icons exit_to_app
+            | ログアウト
+    
+
+a data-target="slide-out" class="sidenav-trigger show-on-small"
   i class="material-icons"
     | menu
 
 javascript:
-  // sidenavの表示
-  $(document).ready(function(){
-    $(".sidenav").sidenav();
-  })
-
-  // dropdown-menuの表示
-  $(".dropdown-trigger").dropdown();
   
-  // modalの表示
-  $(document).ready(function(){
-    $('.modal').modal();
-  });
+  $(function(){
+  // sidenavの表示
+   $(".sidenav").sidenav();
+   
+   // dropdown-menuの表示
+   $(".dropdown-trigger").dropdown();
+   
+   // modalの表示
+   $('.modal').modal();
   
   // DOM取得時にウィンドウ幅が600px以下だった場合にcol.s12に置き換える
-  window.onload = function(){
-    const smWindowSize = 600;
-    if (window.innerWidth <= smWindowSize){
-      $("div.col").removeClass("s9").addClass("s12");
-    }
-  }
+ 　 const smWindowSize = 600;
+   　 if (window.innerWidth <= smWindowSize){
+  　　  $("div.col").removeClass("s9").addClass("s12");
+  　　}
+  });
   
   // ウィンドウ幅600px以下にresizeした場合col.12に置き換える
   $(window).on("resize", function(){
     const smWindowSize = 600;
     if (window.innerWidth <=  smWindowSize){
-      $("div.col").removeClass("s6").addClass("s12");
+      $("div.col").removeClass("s9").addClass("s12");
     } else {
       $("div.col").removeClass("s12").addClass("s9");
     }
