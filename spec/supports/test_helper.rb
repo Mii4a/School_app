@@ -111,8 +111,7 @@ module TestHelper
 
   #ログアウトする
   def system_logout
-      click_link user.name
-      click_link 'ログアウト'
+      click_on 'ログアウト'
   end
   
   # 学校を作る
@@ -144,5 +143,8 @@ module TestHelper
     click_button "再提出する"
   end
     
+  def ensure_browser_size(width = 1200, height = 720)
+    Capybara.current_session.driver.browser.manage.window.resize(width, height)
+  end
     
 end

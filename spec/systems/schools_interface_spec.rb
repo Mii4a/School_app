@@ -9,7 +9,7 @@ RSpec.describe "School", type: :system, js: true do
     it "checks to see each items" do
         system_login_as(user)
         visit root_path
-        click_link "学校を作る"
+        click_on "学校を作る"
         expect(page).to have_content "学校名"
         expect(page).to have_content "サブタイトル"
         expect(page).to have_content "学校について"
@@ -55,6 +55,7 @@ RSpec.describe "School", type: :system, js: true do
       it "check to see each items" do
           system_school_create
           visit edit_school_path(user)
+          expect(page).to have_content "学校設定"
           expect(page).to have_content "学校名"
           expect(page).to have_content "サブタイトル"
           expect(page).to have_content "学校について"
@@ -66,26 +67,6 @@ RSpec.describe "School", type: :system, js: true do
               system_school_create
               system_school_update(name: "")
               expect(page).to have_content "学校設定"
-          end
-      end
-  end
-  
-  describe "school sidebar count" do
-      context "when logged in" do
-          it "is present" do
-              system_login_as(user)
-              visit root_path
-              expect(page).to have_content user.schools.count
-          end
-      end
-      context "when not create school yet" do
-          it "creates a school and then increase the count " do
-              system_login_as(other_user)
-              visit root_path
-              expect(page).to have_css '.user_profile p', text: "0"
-              other_user.schools.create!(name: "other_user_school")
-              visit root_path
-              page.has_css?('.user_profile p', text: "1")
           end
       end
   end

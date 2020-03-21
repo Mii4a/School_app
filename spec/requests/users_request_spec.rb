@@ -28,7 +28,7 @@ RSpec.describe "Users", type: :request do
       subject { Proc.new { post users_path,
                           params: { user: valid_params } } }
       it_behaves_like "create model", User
-      it_behaves_like "redirect to path", '/'
+      it_behaves_like "redirect to", '/'
       it_behaves_like "info message", "アカウント有効化のために、メールをご確認ください"
     end
   end
@@ -37,7 +37,7 @@ RSpec.describe "Users", type: :request do
     subject { Proc.new { get edit_user_path(user) } }
     
     context "when not logged in" do
-      it_behaves_like "error message", "ログインしてください"
+      it_behaves_like "error message", "ログインして下さい"
       it_behaves_like "redirect to", '/login'
     end
     
@@ -55,12 +55,12 @@ RSpec.describe "Users", type: :request do
     subject { Proc.new { patch_valid_information } }
     context "when not logged in" do
       it_behaves_like "error message", "ログインして下さい"
-      it_behaves_like "redirect to path", '/login'
+      it_behaves_like "redirect to", '/login'
     end
     
     context "when logged in as wrong user" do
       before { request_login_as(other_user) }
-      it_behaves_like "redirect to path", '/'
+      it_behaves_like "redirect to", '/'
     end
     
     context "when non-admin user" do
