@@ -16,7 +16,15 @@ FactoryBot.define do
     sub_title { "a" }
     name { Faker::University.name }
     content { "aaaaa" }
-    user
+    with_default_user
+    
+    trait :with_default_user do
+      association :user, factory: :user
+    end
+    
+    trait :with_other_user do
+      association :user, factory: :other_user
+    end
   end
   
   factory :most_recent, class: School do

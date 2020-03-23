@@ -21,6 +21,21 @@ FactoryBot.define do
         admin      { true }
         activated  { true }
         activated_at { Time.zone.now }
+        # school
+        # school_relationships
+        
+        trait :with_default_schools do
+          after(:build) do |user|
+              user.schools << build(:school, name: "パリ大学")
+              user.schools << build(:school, name: "ボローニャ大学")
+          end
+        end
+        
+        trait :with_default_school_relationships do
+            after(:build) do |user|
+                user.school_relationships << build(:school_relationships)
+            end
+        end
     end
     
     factory :other_user, class: User do

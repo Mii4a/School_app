@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_12_103935) do
+ActiveRecord::Schema.define(version: 2020_03_23_001748) do
+
+  create_table "school_relationships", force: :cascade do |t|
+    t.integer "student_id"
+    t.integer "school_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["school_id"], name: "index_school_relationships_on_school_id"
+    t.index ["student_id", "school_id"], name: "index_school_relationships_on_student_id_and_school_id", unique: true
+    t.index ["student_id"], name: "index_school_relationships_on_student_id"
+  end
 
   create_table "schools", force: :cascade do |t|
     t.text "sub_title"

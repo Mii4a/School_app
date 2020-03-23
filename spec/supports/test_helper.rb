@@ -124,11 +124,12 @@ module TestHelper
     fill_in "学校名", with: name
     fill_in "サブタイトル", with: sub_title
     fill_in "学校について", with: content
-    attach_file "学校写真", "../imgs/school.jpeg"
+    # attach_file "学校写真", "../imgs/school.jpeg"
     click_button "提出する"
   end
   
   def system_school_destroy
+    find(".school-dropdown_trigger").click
     click_on "削除"
   end
   
