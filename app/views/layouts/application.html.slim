@@ -44,31 +44,41 @@ html
            | menu
 
 javascript:
+  var content = $("div.col");
+  var sidebar = $("aside.col");
+  var smWindowSize = 600;
+  
+  function materializeConvertClass(target, removeClass, addClass){
+    $(target).removeClass(removeClass).addClass(addClass);
+  }
   
   $(function(){
-  // sidenavの表示
-   $(".sidenav").sidenav();
+    // sidenavの表示
+    $(".sidenav").sidenav();
    
-   // dropdown-menuの表示
-   $(".dropdown-trigger").dropdown();
+    // dropdown-menuの表示
+    $(".dropdown-trigger").dropdown();
    
-   // modalの表示
-   $('.modal').modal();
+    // modalの表示
+    $('.modal').modal();
   
-  // DOM取得時にウィンドウ幅が600px以下だった場合にcol.s12に置き換える
- 　 const smWindowSize = 600;
-   　 if (window.innerWidth <= smWindowSize){
-  　　  $("div.col").removeClass("s9").addClass("s12");
-  　　}
+    // DOM取得時にウィンドウ幅が600px以下だった場合にcol.s12に置き換える
+    if (window.innerWidth <= smWindowSize){
+   　 materializeConvertClass(content, "s9", "s12");
+   　 materializeConvertClass(sidebar, "s3", "s12");
+    }
   });
   
   // ウィンドウ幅600px以下にresizeした場合col.12に置き換える
   $(window).on("resize", function(){
-    const smWindowSize = 600;
+    content = $("div.col");
+    sidebar = $("aside.col");
     if (window.innerWidth <=  smWindowSize){
-      $("div.col").removeClass("s9").addClass("s12");
+      materializeConvertClass(content, "s9", "s12");
+      materializeConvertClass(sidebar, "s3", "s12");
     } else {
-      $("div.col").removeClass("s12").addClass("s9");
+      materializeConvertClass(content, "s12", "s9");
+      materializeConvertClass(sidebar, "s12", "s3");
     }
   });
   

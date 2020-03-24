@@ -2,8 +2,9 @@
 - if logged_in?
   .row
     aside.col.s3.hide-on-small-only.sidebar
-      section.user_info
-        == render 'shared/user_info'
+      == render 'shared/user_info'
+      == render 'shared/school_modal'
+      == render 'shared/sidebar_nav'
     div class="col s9" id="feed-items_content"
       == render 'shared/feed'
       

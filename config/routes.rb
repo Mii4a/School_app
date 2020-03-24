@@ -10,9 +10,18 @@ Rails.application.routes.draw do
   get 'login',  to: "sessions#new"
   post 'login', to: "sessions#create"
   delete "logout", to: "sessions#destroy"
-  resources :users
+  resources :users do
+    member do
+      get :schools
+      get :entered_schools
+    end
+  end
+  resources :schools do
+    member do
+      get :belonging_students
+    end
+  end
   resources :account_activations, only: [:edit]
   resources :password_resets, only: [:new, :create, :edit, :update]
-  resources :schools, only: [:create, :destroy, :edit, :update, :show]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
