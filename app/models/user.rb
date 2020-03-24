@@ -91,8 +91,8 @@ class User < ApplicationRecord
         school_relationships.find_by(school_id: school.id).destroy
     end
     
-    def enter?(school)
-        school_relationships.include?(school)
+    def entered?(school)
+        entered_schools.include?(school)
     end
     
     private

@@ -6,6 +6,8 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+
+# Users
 User.create!(name:        "Example User",
              unique_name: "exampleuser",
              email:       "example@user.com",
@@ -29,6 +31,7 @@ User.create!(name:        "Example User",
                  activated_at: Time.zone.now)
 end
 
+# Schools
 users = User.order(:created_at).take(6)
 20.times do |n|
     sub_title = "Test data #{n}"
@@ -41,4 +44,12 @@ users = User.order(:created_at).take(6)
             content: content
         )
     end
+end
+
+# SchoolRelationships
+users = User.all
+school = School.first
+belonging_students = users[2..50]
+belonging_students.each do |student|
+  student.enter(school)
 end
