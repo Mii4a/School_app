@@ -1,8 +1,9 @@
 - provide(:title, @school.name)
 
 .row
-  aside.col.s3.hide-on-small-only
-    section.user_info
-      == render 'shared/user_info'
-  div.col.s6
+  aside.col.s3.hide-on-small-only.sidebar
+    == render 'shared/user_info'
+    == render 'shared/school_modal'
+    == render 'shared/sidebar_nav'
+  div.col.s9
     == render 'schools/profile'

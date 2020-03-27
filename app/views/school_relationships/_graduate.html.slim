@@ -1,0 +1,2 @@
+= form_for(current_user.school_relationships.find_by(school_id: @school.id), html: { method: :delete }) do |f|
+  = f.submit "卒業する", class: "btn"

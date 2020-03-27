@@ -24,6 +24,7 @@
             a class="trigger" data-id="#dropdown-content_#{@school.id}"
               i.material-icons arrow_upward
               | 閉じる
+    == render 'school_relationships/enter_form'
     p.school-img
       = image_tag @school.picture.url if @school.picture?
     p.content

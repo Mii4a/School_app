@@ -1,0 +1,5 @@
+  div id="follow-form_#{@school.id}"
+    - if current_user.entered?(@school)
+      == render 'school_relationships/graduate'
+    - else
+      == render 'school_relationships/enter'
