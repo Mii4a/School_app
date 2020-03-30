@@ -13,13 +13,18 @@ FactoryBot.define do
   # end
   
   factory :school do
-    sub_title { "a" }
+    sub_title { "subtitle" }
     name { Faker::University.name }
-    content { "aaaaa" }
+    content { "content" }
     with_default_user
+    with_default_picture
     
     trait :with_default_user do
       association :user, factory: :user
+    end
+    
+    trait :with_default_picture do
+      picture { "../img/school.jpeg" }
     end
     
     trait :with_other_user do

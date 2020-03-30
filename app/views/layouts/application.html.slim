@@ -17,31 +17,23 @@ html
       == yield
       == render 'layouts/footer'
       = debug(params) if Rails.env.development?
-    - if logged_in?
-      ul id="slide-out" class="sidenav user_info sidebar"
-        li.user_info
-          .user-name
-             = link_to gravatar_for(current_user, size: 50), current_user
-             h1
-              = current_user.name
-              p.unique_name 
-                | @#{current_user.unique_name}
-          ul.sidebar-nav.show-on-medium
-                li = link_to current_user do
-                  i.material-icons account_circle
-                  | プロフィール
-                li = link_to edit_user_path(current_user) do
-                  i.material-icons folder_shared
-                  | 設定
-                li.divider
-                li = link_to logout_path, method: "delete" do
-                  i.material-icons exit_to_app
-                  | ログアウト
-    
-
-      a data-target="slide-out" class="sidenav-trigger show-on-small"
-        i class="material-icons"
-           | menu
+    ul id="slide-out" class="sidenav sidebar"
+      - if logged_in?
+        == render 'shared/user_info'
+        ul.sidebar-nav.show-on-medium
+          li = link_to current_user do
+            i.material-icons account_circle
+            | プロフィール
+          li = link_to edit_user_path(current_user) do
+            i.material-icons folder_shared
+            | 設定
+          li.divider
+          li = link_to logout_path, method: "delete" do
+            i.material-icons exit_to_app
+            | ログアウト
+    a data-target="slide-out" class="sidenav-trigger show-on-small"
+      i class="material-icons"
+         | menu
 
 javascript:
   var content = $("div.col");

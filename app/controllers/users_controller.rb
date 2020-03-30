@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :logged_in_user, only: [:edit, :update, :index, :destroy]
+  before_action :logged_in_user, only: [:edit, :update, :index, :destroy, :schools, :entered_schools]
   before_action :correct_user, only: [:edit, :update]
   before_action :admin_user, only: :destroy
   
@@ -48,6 +48,14 @@ class UsersController < ApplicationController
     User.find(params[:id]).destroy
     flash[:success] = "削除しました"
     redirect_to users_url
+  end
+  
+  def schools
+    @user = User.find(params[:id])
+    @schools = @user.schools.page(params[:page]).per(20)
+  end
+  
+  def entered_schools
   end
     
     private

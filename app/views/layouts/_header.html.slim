@@ -1,20 +1,24 @@
 header
-  div.nav-wrapper
-    = link_to "Schoop", root_path, id: "logo"
     nav.teal.lighten-1
-      ul.right.hide-on-med-and-down
-        li = link_to "TOP", root_path
-        li = link_to "ヘルプ", help_path
+      .nav-wrapper
+        = link_to "Schoop", root_path, id: "logo"
         - if logged_in?
-          li
-            a href="#!" class="dropdown-trigger" data-target="header-dropdown"
-              = current_user.name
-              i class="material-icons right" arrow_drop_down
-          ul class="dropdown-content" id="header-dropdown"
-            li = link_to "プロフィール", current_user
-            li = link_to "設定", edit_user_path(current_user.id)
-            li.divider
-            li = link_to "ログアウト", logout_path, method: "delete"
-        - else
-          li = link_to "ログイン", login_path
+          .current_path
+            i.material-icons.left chevron_right
+            span.title.left = yield(:title)
+        ul.right.hide-on-med-and-down
+          li = link_to "TOP", root_path
+          li = link_to "ヘルプ", help_path
+          - if logged_in?
+            li
+              a href="#!" class="dropdown-trigger" data-target="header-dropdown"
+                = current_user.name
+                i class="material-icons right" arrow_drop_down
+            ul class="dropdown-content" id="header-dropdown"
+              li = link_to "プロフィール", current_user
+              li = link_to "設定", edit_user_path(current_user.id)
+              li.divider
+              li = link_to "ログアウト", logout_path, method: "delete"
+          - else
+            li = link_to "ログイン", login_path
             

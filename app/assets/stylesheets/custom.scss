@@ -70,14 +70,28 @@ header {
         color: #fff;
         text-transform: uppercase;
         letter-spacing: -1px;
-        padding-top: 9px;
         font-weight: bold;
         text-decoration: none;
     }
     li:hover {
         background-color: #80cbc4;
-        a{
+        a {
             text-decoration: none;
+        }
+    }
+    .current_path {
+        float: left;
+        font-size: 1.2rem;
+        padding: 0 10px;
+        i {
+            margin-right: 10px;
+        }
+        // .title {
+        //     line-height: 1;
+        // }
+        * {
+            position: relative;
+            top: 4px;
         }
     }
 }
@@ -231,30 +245,38 @@ footer{
 
 // sidenav
 
-.sidenav-trigger {
-    background-color: #26af9a;
-    border-radius: 50%;
-    bottom: 20px;
-    box-shadow: 1px 1px 1px rgba(0, 0, 0, .5);
-    display: none;
-    height: 50px;
-    padding: 10px;
-    position: fixed;
-    right: 20px;
-    text-align: center;
-    transition: .3s ease-in-out;
-    width: 50px;
-    i {
-        color: #eee;
-        font-size: 30px;    
+.sidenav {
+    .user_info {
+        padding: 0 20px;
     }
-    &:hover{
-        height: 55px;
-        padding: 12px 0 13px;
-        transform: rotate(360deg);
-        width: 55px;
-        i{
-            
+    &-trigger {
+        background-color: #26af9a;
+        border-radius: 50%;
+        bottom: 20px;
+        box-shadow: 1px 1px 1px rgba(0, 0, 0, .5);
+        display: none;
+        height: 50px;
+        padding: 10px;
+        position: fixed;
+        right: 20px;
+        text-align: center;
+        transition: .3s ease-in-out;
+        width: 50px;
+        i {
+            color: #eee;
+            font-size: 30px;    
+        }
+        &:hover {
+            height: 55px;
+            padding: 12px 0 13px;
+            transform: rotate(360deg);
+            width: 55px;
+        }
+    }
+    .sidebar-nav {
+        i {
+            position: relative;
+            top: -1px;
         }
     }
 }
@@ -310,206 +332,6 @@ input {
     }
 }
 
-// schools
-
-.schools{
-    list-style:none;
-    padding: 0;
-    > li {
-        position: relative;
-        padding: 10px;
-        border-radius: 5px;
-        border-top: 1px solid #e8e8e8;
-        border-left: 1px solid #e8e8e8;
-        border-right: 1px solid #e8e8e8;
-        &:nth-of-type(1) {
-        border-top: none;
-        }
-        &:hover{
-            background-color: rgba(0, 0, 0, .05);
-            cursor: pointer;
-        }
-    }
-    .school-header {
-        display: flex;
-        margin-bottom: 10px;
-        text-decoration: none;
-        > img {
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            margin: 0 10px 10px 0;
-        }
-        .subtitle a {
-            color: #333;
-        }
-        .name a {
-            color: #333;
-        }
-        .detail {
-            float: right;
-        }
-    }
-    .name {
-        font-size: 1.2rem;
-        font-weight: bold;
-    }
-    .user {
-        font-size: 1.2rem;
-        padding-top: 0;
-    }
-    .gravatar {
-        height: 20px;
-        margin-bottom: 0;
-        margin-right: 8px;
-        position: relative;
-        top: 4px;
-        width: 20px;
-    }
-   .school-img {
-       img {
-           border-radius: 5px;
-           height: auto;
-           max-width: 100%;
-           max-height: 100%;
-           text-align: center;
-           width: auto;
-       }
-   }
-    .school-dropdown_trigger{
-        width: 25px;
-        height: 25px;
-        margin-left: auto;
-        border-radius: 50%;
-        transition: background-color .3s;
-        &:hover {
-            background-color: rgba(0, 0, 0, .1);
-        }
-    }
-    .timestamp {
-        color: #aaa;
-        position: absolute;
-        right: 45px;
-        top: 10px;
-        z-index: 1;
-    }
-}
-
-// schools(modal)
-
-.school-modal {
-    border-bottom: 1px solid #e0e0e0;
-}
-
-.modal{
-    .modal-content{
-        border: none;
-        box-shadow: none;
-        h4{
-            text-align: center;
-            margin: 0 0 20px;
-        }
-        label{
-            margin: 0 0 8px;
-        }
-        input{
-            padding: 1px;
-            margin-bottom: 20px;
-        }
-    }
-    .modal-footer {
-        padding: 15px !important;
-        p{
-            text-align: left;
-        }
-        .gravatar {
-            position: relative;
-            top: 2px;
-        }
-    }
-}
-
-
-// school-profile
-
-.school-profile {
-    position: relative;
-    padding: 10px;
-    border-radius: 5px;
-    border-top: 1px solid #e8e8e8;
-    border-left: 1px solid #e8e8e8;
-    border-right: 1px solid #e8e8e8;
-    &:nth-of-type(1) {
-    border-top: none;
-    }
-    &:hover{
-        background-color: rgba(0, 0, 0, .05);
-        cursor: pointer;
-    }
-    .school-header {
-        display: flex;
-        margin-bottom: 10px;
-        text-decoration: none;
-        > img {
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            margin: 0 10px 10px 0;
-        }
-        .subtitle a {
-            color: #333;
-        }
-        .name a {
-            color: #333;
-        }
-        .detail {
-            float: right;
-        }
-    }
-    .name {
-        font-size: 1.2rem;
-        font-weight: bold;
-    }
-    .user {
-        font-size: 1.2rem;
-        padding-top: 0;
-    }
-    .gravatar {
-        height: 20px;
-        margin-bottom: 0;
-        margin-right: 8px;
-        position: relative;
-        top: 4px;
-        width: 20px;
-    }
-   .school-img {
-       img {
-           border-radius: 5px;
-           height: auto;
-           max-width: 100%;
-           max-height: 100%;
-           text-align: center;
-           width: auto;
-       }
-   }
-    .school-dropdown_trigger{
-        width: 25px;
-        height: 25px;
-        margin-left: auto;
-        border-radius: 50%;
-        transition: background-color .3s;
-        &:hover {
-            background-color: rgba(0, 0, 0, .1);
-        }
-    }
-    .timestamp {
-        color: #aaa;
-        position: absolute;
-        right: 45px;
-        top: 10px;
-        z-index: 1;
-    }
-}
 
 // microposts
 
@@ -543,90 +365,6 @@ span.picture{
     }
 }
 
-// feed_items
-
-.feed_items {
-    list-style:none;
-    padding: 0;
-    > li {
-        position: relative;
-        padding: 10px;
-        border-radius: 5px;
-        border-top: 1px solid #e8e8e8;
-        border-left: 1px solid #e8e8e8;
-        border-right: 1px solid #e8e8e8;
-        &:nth-of-type(1) {
-        border-top: none;
-        }
-        &:hover{
-            background-color: rgba(0, 0, 0, .05);
-            cursor: pointer;
-        }
-    }
-    .school-header {
-        display: flex;
-        margin-bottom: 10px;
-        text-decoration: none;
-        > img {
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            margin: 0 10px 10px 0;
-        }
-        .subtitle a {
-            color: #333;
-        }
-        .name a {
-            color: #333;
-        }
-        .detail {
-            float: right;
-        }
-    }
-    .name {
-        font-size: 1.2rem;
-        font-weight: bold;
-    }
-    .user {
-        font-size: 1.2rem;
-        padding-top: 0;
-    }
-    .gravatar {
-        height: 20px;
-        margin-bottom: 0;
-        margin-right: 8px;
-        position: relative;
-        top: -2px;
-        width: 20px;
-    }
-   .school-img {
-       img {
-           border-radius: 5px;
-           height: auto;
-           max-width: 100%;
-           max-height: 100%;
-           text-align: center;
-           width: auto;
-       }
-   }
-    .school-dropdown_trigger{
-        width: 25px;
-        height: 25px;
-        margin-left: auto;
-        border-radius: 50%;
-        transition: background-color .3s;
-        &:hover {
-            background-color: rgba(0, 0, 0, .1);
-        }
-    }
-    .timestamp {
-        color: #aaa;
-        position: absolute;
-        right: 45px;
-        top: 10px;
-        z-index: 1;
-    }
-}
 
 .school-dropdown_content {
     background-color: #fff;

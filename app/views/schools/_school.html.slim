@@ -1,7 +1,7 @@
 li id="school-#{ school.id }"
-    .school-header
+    .schools-header
       = image_tag school.picture.url if school.picture?
-      .school-titles
+      .schools-titles
         span.subtitle
           = link_to school.sub_title, school
         p.name
@@ -24,12 +24,12 @@ li id="school-#{ school.id }"
             a class="trigger" data-id="#dropdown-content_#{school.id}"
               i.material-icons arrow_upward
               | 閉じる
-    p.school-img
+    p.schools-img
       = image_tag school.picture.url if school.picture?
-    p.content
+    p.schools-content
       = school.content
-    p.user
+    p.schools-user
       = link_to gravatar_for(school.user, size: 50), school.user
       = link_to school.user.name, school.user
-    p.timestamp
+    p.schools-timestamp
       = time_ago_in_words(school.created_at)
