@@ -1,0 +1,15 @@
+== render 'shared/user_info'
+  ul.sidebar-nav
+    li = link_to root_path do
+      i.material-icons home
+      | ホーム
+    li = link_to current_user do
+      i.material-icons account_circle
+      | プロフィール
+    li = link_to edit_user_path(current_user) do
+      i.material-icons folder_shared
+      | 設定
+    li.divider
+    li = link_to logout_path, method: "delete" do
+      i.material-icons exit_to_app
+      | ログアウト

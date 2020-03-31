@@ -1,8 +1,6 @@
-  - provide :title, "Log in"
-  h1 ログイン
-  
+  - provide(:title, "ログイン")
   .row
-    .col-md-6.col-md-offset-3
+    .col.m6.offset-m3
       = form_for(:session, url: login_path) do |f|
         
       

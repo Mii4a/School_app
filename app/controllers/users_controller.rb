@@ -56,6 +56,8 @@ class UsersController < ApplicationController
   end
   
   def entered_schools
+    @user = User.find(params[:id])
+    @schools = @user.entered_schools.page(params[:page]).per(20)
   end
     
     private

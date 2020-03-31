@@ -1,14 +1,16 @@
 header
     nav.teal.lighten-1
       .nav-wrapper
-        = link_to "Schoop", root_path, id: "logo"
-        - if logged_in?
-          .current_path
-            i.material-icons.left chevron_right
-            span.title.left = yield(:title)
+        = link_to root_path, id: "logo" do
+          | Schoop
+        .current_path
+          i.material-icons.left chevron_right
+          span.title.left = yield(:title)
         ul.right.hide-on-med-and-down
-          li = link_to "TOP", root_path
-          li = link_to "ヘルプ", help_path
+          li = link_to root_path, alt: "ホーム画面に遷移する" do
+            i.material-icons home
+          li = link_to help_path, alt: "ヘルプに遷移する" do
+            i.material-icons help
           - if logged_in?
             li
               a href="#!" class="dropdown-trigger" data-target="header-dropdown"

@@ -1,11 +1,7 @@
 - provide(:title, @user.name)
 .row
   aside.col.s3.sidebar
-    section.user-profile
-      h1
-        = gravatar_for @user
-        span = @user.name
-        p.unique_name @#{ @user.unique_name }
+    == render 'shared/user_info'
     == render 'shared/stats'
     == render 'shared/sidebar_nav'
   div.col.s9

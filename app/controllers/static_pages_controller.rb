@@ -1,4 +1,5 @@
 class StaticPagesController < ApplicationController
+
   def home
     if logged_in?
       @school_build = current_user.schools.build
