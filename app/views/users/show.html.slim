@@ -1,11 +1,19 @@
 - provide(:title, @user.name)
 .row
-  aside.col.s3.sidebar
+  aside.col.s4.sidebar.hide-on-small-only
     == render 'shared/user_info'
-    == render 'shared/stats'
+    == render 'shared/school_modal'
     == render 'shared/sidebar_nav'
-  div.col.s9
+  div.col.s8
     - if @user.schools.any?
       ol.schools
-         == render @schools
+        .user
+          section.user-info.user-profile
+            = link_to gravatar_for(@user, size: 50), @user
+            h1
+              = @user.name
+              p.unique_name 
+                | @#{@user.unique_name}
+          == render 'shared/stats'
+        == render @schools
 = paginate @schools

@@ -19,9 +19,9 @@ html
       = debug(params) if Rails.env.development?
     ul id="slide-out" class="sidenav sidebar"
       - if logged_in?
-        == render 'layouts/sidebar_nav_after_log_in'
+        == render 'layouts/sidenav_after_log_in'
       - else
-        == render 'layouts/sidebar_nav_before_log_in'
+        == render 'layouts/sidenav_before_log_in'
     a data-target="slide-out" class="sidenav-trigger show-on-small"
       i class="material-icons"
          | menu
@@ -47,8 +47,8 @@ javascript:
   
     // DOM取得時にウィンドウ幅が600px以下だった場合にcol.s12に置き換える
     if (window.innerWidth <= smWindowSize){
-   　 materializeConvertClass(content, "s9", "s12");
-   　 materializeConvertClass(sidebar, "s3", "s12");
+   　 materializeConvertClass(content, "s8", "s12");
+   　 materializeConvertClass(sidebar, "s4", "s12");
     }
   });
   
@@ -57,11 +57,11 @@ javascript:
     content = $("div.col");
     sidebar = $("aside.col");
     if (window.innerWidth <=  smWindowSize){
-      materializeConvertClass(content, "s9", "s12");
-      materializeConvertClass(sidebar, "s3", "s12");
+      materializeConvertClass(content, "s8", "s12");
+      materializeConvertClass(sidebar, "s4", "s12");
     } else {
-      materializeConvertClass(content, "s12", "s9");
-      materializeConvertClass(sidebar, "s12", "s3");
+      materializeConvertClass(content, "s12", "s8");
+      materializeConvertClass(sidebar, "s12", "s4");
     }
   });
   

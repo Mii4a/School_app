@@ -14,6 +14,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @schools = @user.schools.page(params[:page]).per(5)
+    @school_build = @user.schools.build
     redirect_to root_url and return unless @user.activated?
   end
   
@@ -31,6 +32,7 @@ class UsersController < ApplicationController
   
   def edit
     @user = User.find(params[:id])
+    @school_build = @user.schools.build
   end
   
   def update
@@ -53,11 +55,13 @@ class UsersController < ApplicationController
   def schools
     @user = User.find(params[:id])
     @schools = @user.schools.page(params[:page]).per(20)
+    @school_build = @user.schools.build
   end
   
   def entered_schools
     @user = User.find(params[:id])
     @schools = @user.entered_schools.page(params[:page]).per(20)
+    @school_build = @user.schools.build
   end
     
     private

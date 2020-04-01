@@ -1,8 +1,10 @@
 - provide(:title, "所有学校一覧")
 .row
-  aside.col.s3.sidebar
+  aside.col.s4.sidebar.hide-on-small-only
     == render 'shared/user_info'
-  div.col.s9
+    == render 'shared/school_modal'
+    == render 'shared/sidebar_nav'
+  div.col.s8
     - if @schools.any?
       == render 'shared/stats_schools'
     - else
