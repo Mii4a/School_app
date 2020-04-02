@@ -1,0 +1,8 @@
+aside.col.s4.sidebar.hide-on-small-only
+  - if logged_in?
+    .sidebar-partials
+      == render 'shared/user_info'
+      == render 'shared/school_modal'
+    == render 'shared/sidebar_nav_after_login'
+  - else
+    == render 'shared/sidebar_nav_before_login'

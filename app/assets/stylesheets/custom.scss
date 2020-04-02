@@ -166,7 +166,7 @@ footer{
         font-size: 2.3em;
         font-weight: bold;
         letter-spacing: -1px;
-        padding: 15px 0 10px 78px;
+        text-align: center;
         text-decoration: none;
         text-transform: uppercase;
         .logo {
@@ -315,7 +315,7 @@ footer{
             top: -1px;
         }
     }
-    &-partials {
+    .sidebar-partials {
         padding: 0 20px;
     }
 }
@@ -408,8 +408,6 @@ span.picture{
 }
 
 .edit {
-    border-left: 1px solid #e0e0e0;
-    border-right: 1px solid #e0e0e0;
     &-header {
         display: flex;
         &_picture {

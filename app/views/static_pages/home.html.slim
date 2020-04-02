@@ -1,10 +1,7 @@
 - provide(:title, "Home")
 - if logged_in?
   .row
-    aside.col.s4.hide-on-small-only.sidebar
-      == render 'shared/user_info'
-      == render 'shared/school_modal'
-      == render 'shared/sidebar_nav'
+    == render 'shared/sidebar'
     div class="col s8" id="feed-items_content"
       == render 'shared/feed'
       

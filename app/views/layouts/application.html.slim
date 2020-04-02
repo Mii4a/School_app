@@ -5,8 +5,8 @@ html
     = csrf_meta_tags 
     = csp_meta_tag 
 
-    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
-    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'true'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'true'
 
 
   body
@@ -17,60 +17,31 @@ html
       == yield
       == render 'layouts/footer'
       = debug(params) if Rails.env.development?
-    ul id="slide-out" class="sidenav sidebar"
+    ul id="slide-out" class="sidenav slidebar sidebar"
       - if logged_in?
-        == render 'layouts/sidenav_after_log_in'
+        == render 'layouts/slidebar_after_log_in'
       - else
-        == render 'layouts/sidenav_before_log_in'
+        == render 'layouts/slidebar_before_log_in'
     a data-target="slide-out" class="sidenav-trigger show-on-small"
       i class="material-icons"
          | menu
 
 javascript:
   var content = $("div.col");
-  var sidebar = $("aside.col");
   var smWindowSize = 600;
   
-  function materializeConvertClass(target, removeClass, addClass){
-    $(target).removeClass(removeClass).addClass(addClass);
-  }
-  
   $(function(){
-    // sidenavの表示
-    $(".sidenav").sidenav();
-   
-    // dropdown-menuの表示
-    $(".dropdown-trigger").dropdown();
-   
-    // modalの表示
-    $('.modal').modal();
-  
     // DOM取得時にウィンドウ幅が600px以下だった場合にcol.s12に置き換える
     if (window.innerWidth <= smWindowSize){
-   　 materializeConvertClass(content, "s8", "s12");
-   　 materializeConvertClass(sidebar, "s4", "s12");
-    }
-  });
-  
-  // ウィンドウ幅600px以下にresizeした場合col.12に置き換える
-  $(window).on("resize", function(){
-    content = $("div.col");
-    sidebar = $("aside.col");
-    if (window.innerWidth <=  smWindowSize){
       materializeConvertClass(content, "s8", "s12");
-      materializeConvertClass(sidebar, "s4", "s12");
-    } else {
-      materializeConvertClass(content, "s12", "s8");
-      materializeConvertClass(sidebar, "s12", "s4");
     }
   });
   
   //school slide menu
-    //triggerをクリック時、school-dropdown_contentを表示
+  //triggerをクリック時、school-dropdown_contentを表示
   $('.trigger').on('click',function(){
     var content = $(this).data('id');
     $(content).slideToggle(50);
   });
-  
     
   
