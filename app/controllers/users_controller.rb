@@ -5,6 +5,10 @@ class UsersController < ApplicationController
   
   def index
     @users = User.feed.page(params[:page]).per(20)
+    if logged_in?
+      @user = current_user
+      @school_build = current_user.schools.build
+    end
   end
   
   def new

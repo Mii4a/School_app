@@ -8,11 +8,11 @@ RSpec.describe "SchoolsProfile", type: :system do
         it "checks each items" do
             system_login_as(user)
             visit school_path(school)
-            expect(page).to have_selector '.school-titles subtitle', text: school.sub_title
-            expect(page).to have_selector '.school-titles name', text: school.name
-            expect(page).to have_selector '.school-content', text: school.content
-            expect(page).to have_content school.picture
-            expect(page).to have_link school.user
+            expect(page).to have_selector '.school-header .subtitle', text: school.sub_title
+            expect(page).to have_selector '.school-header .name', text: school.name
+            expect(page).to have_selector '.school-container .school-content', text: school.content
+            expect(page).to have_selector '.school-container .timestamp'
+            expect(page).to have_link school.user.name
         end
     end
 end
