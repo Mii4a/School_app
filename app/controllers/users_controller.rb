@@ -45,6 +45,7 @@ class UsersController < ApplicationController
       flash[:success] = "更新しました"
       redirect_to @user
     else
+      @school_build = @user.schools.build
       flash[:danger] = "更新に失敗しました"
       render 'edit'
     end

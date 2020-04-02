@@ -10,8 +10,8 @@ let(:schools){ create_list(:school, 10) }
       system_login_as(user)
       visit user_path(user)
       expect(page).to have_content user.name
+      expect(page).to have_content user.unique_name
       expect(page).to have_css "img.gravatar"
-      expect(page).to have_content user.schools.count.to_s
     end
   end
 

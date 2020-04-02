@@ -5,10 +5,10 @@
         i.material-icons school
       .stats-school_content
         a href="#{schools_user_path(@user)}"
-          strong id="entered_schools" class="stats"
+          strong class="stats-count"
             = @user.schools.count
           | 所有数
         a href="#{entered_schools_user_path(@user)}"
-          strong id="entered_schools" class="stats"
+          strong class="stats-count"
             = @user.entered_schools.count
           | 在学数
