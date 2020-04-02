@@ -33,10 +33,7 @@
             height: 50px;
             margin: 0 10px 10px 0;
         }
-        .subtitle a {
-            color: #333;
-        }
-        .name a {
+        a {
             color: #333;
         }
         .detail {
@@ -139,19 +136,16 @@
             height: 50px;
             margin: 0 10px 10px 0;
         }
-        .subtitle a {
+        a {
             color: #333;
         }
-        .name a {
-            color: #333;
+        .name {
+            font-size: 1.2rem;
+            font-weight: bold;
         }
         .detail {
             float: right;
         }
-    }
-    .name {
-        font-size: 1.2rem;
-        font-weight: bold;
     }
     .user {
         font-size: 1.2rem;
@@ -165,7 +159,7 @@
         top: -1px;
         width: 20px;
     }
-   .school-img {
+   .school-picture {
        img {
            border-radius: 5px;
            height: auto;
@@ -175,16 +169,6 @@
            width: auto;
        }
    }
-    .school-dropdown_trigger{
-        width: 25px;
-        height: 25px;
-        margin-left: auto;
-        border-radius: 50%;
-        transition: background-color .3s;
-        &:hover {
-            background-color: rgba(0, 0, 0, .1);
-        }
-    }
     .timestamp {
         color: #aaa;
         position: absolute;

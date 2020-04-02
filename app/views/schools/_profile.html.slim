@@ -1,7 +1,7 @@
 .school-profile
     .school-header
-      = image_tag @school.picture.url if @school.picture?
-      .school-titles
+      = image_tag @school.picture.url, class: "school-header_picture" if @school.picture?
+      .school-title
         span.subtitle
           = link_to @school.sub_title, @school
         p.name
@@ -25,12 +25,13 @@
               i.material-icons arrow_upward
               | 閉じる
     == render 'school_relationships/enter_form'
-    p.school-img
-      = image_tag @school.picture.url if @school.picture?
-    p.content
-      = @school.content
-    p.user
-      = link_to gravatar_for(@school.user, size: 50), @school.user
-      = link_to @school.user.name, @school.user
-    p.timestamp
-      = time_ago_in_words(@school.created_at)
+    .school-container
+      p.school-picture
+        = image_tag @school.picture.url if @school.picture?
+      p.school-content
+        = @school.content
+      p.user
+        = link_to gravatar_for(@school.user, size: 50), @school.user
+        = link_to @school.user.name, @school.user
+      p.timestamp
+        = time_ago_in_words(@school.created_at)
