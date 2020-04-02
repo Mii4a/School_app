@@ -32,6 +32,7 @@ before_action :correct_user, only: [:destroy, :edit, :update]
   end
   
   def update
+    @school_build = current_user.schools.build
     if @school.update_attributes(school_params)
       flash[:success] = "更新しました"
       redirect_to root_url
