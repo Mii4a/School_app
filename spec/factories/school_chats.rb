@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :school_chat do
-    user { nil }
-    school { nil }
+    user { create(:user) }
+    school { create(:school) }
     content { "MyText" }
   end
 end
