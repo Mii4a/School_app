@@ -1,9 +1,8 @@
 class User < ApplicationRecord
     has_many :schools, dependent: :destroy
-    has_many :school_relationships, class_name:  "SchoolRelationship",
-                                    foreign_key: "student_id",
-                                    dependent:   :destroy
+    has_many :school_relationships, foreign_key: "student_id", dependent:   :destroy
     has_many :entered_schools, through: :school_relationships, source: :school
+    has_many :school_chats, dependent: :destroy
     attr_accessor :remember_token, :activation_token, :reset_token
     before_save :downcase_email
     before_create :create_activation_digest
