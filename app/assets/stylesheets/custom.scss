@@ -66,6 +66,9 @@ p {
 // header
 
 header {
+    .nav-wrapper {
+        background-color: #57c597;
+    }
     #logo {
         color: #fff;
         float: left;
@@ -286,7 +289,7 @@ footer{
 
 .sidenav {
     &-trigger {
-        background-color: #26af9a;
+        background-color: #57c597;
         border-radius: 50%;
         bottom: 20px;
         box-shadow: 1px 1px 1px rgba(0, 0, 0, .5);
@@ -303,19 +306,14 @@ footer{
             font-size: 30px;    
         }
         &:hover {
-            height: 55px;
+            height: 52px;
             padding: 12px 0 13px;
-            transform: rotate(360deg);
-            width: 55px;
-        }
-    }
-    .sidebar-nav {
-        i {
-            position: relative;
-            top: -1px;
+            transform: rotate(180deg);
+            width: 52px;
         }
     }
     .sidebar-partials {
+        border-bottom: 1px solid #e0e0e0;
         padding: 0 20px;
     }
 }
@@ -419,6 +417,26 @@ span.picture{
     }
     #school_picture {
         margin-bottom: 10px;
+    }
+}
+
+// pagination
+
+.pagination {
+    display: block;
+    float: right;
+    width: auto !important;
+    li {
+        &.active {
+            background-color: #57c597 !important;
+        }
+        a {
+            border: none;
+            height: 30px;
+        }
+    }
+    .active a, .active a:hover {
+        background-color: transparent;
     }
 }
 

@@ -77,10 +77,6 @@
 
 // schools(modal)
 
-.school-modal {
-    border-bottom: 1px solid #e0e0e0;
-}
-
 .modal{
     .modal-content{
         border: none;
@@ -114,7 +110,7 @@
 
 .school-profile {
     position: relative;
-    padding: 10px 20px;
+    padding: 10px;
     border-radius: 5px;
     border-top: 1px solid #e8e8e8;
     border-left: 1px solid #e8e8e8;
@@ -160,6 +156,9 @@
         padding: 0;
         text-align: center;
         width: 96px;
+        &:hover {
+            box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2) inset;
+        }
     }
     .user {
         font-size: 1.2rem;
@@ -201,6 +200,9 @@
     transition: background-color .3s;
     &:hover {
         background-color: rgba(0, 0, 0, .1);
+    }
+    i {
+        color: #57c597;
     }
 }
 
