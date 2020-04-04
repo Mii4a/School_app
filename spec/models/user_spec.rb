@@ -83,12 +83,14 @@ RSpec.describe User, type: :model do
   
   describe "associated school chat" do
     let(:school){ create(:school) }
-    it "expects to be destroyed" do
-      content = "Test Data"
-      user.school_chats.create!(user_id: user,
-                                school_id: school.id,
-                                content: content )
-      expect{user.destroy}.to change(SchoolChat, :count).by(-1)
+    context "when user is destroyed" do
+      it "expects to be destroyed" do
+        content = "Test Data"
+        user.school_chats.create!(user_id: user,
+                                  school_id: school.id,
+                                  content: content )
+        expect{user.destroy}.to change(SchoolChat, :count).by(-1)
+      end
     end
   end
 end

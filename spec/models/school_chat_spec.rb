@@ -27,9 +27,8 @@ RSpec.describe SchoolChat, type: :model do
   end
   
   describe "order" do
-    it "expected to be most recent first" do
-      expect(chats.last).to eq SchoolChat.first
-    end
+    subject(:most_recent_chat){ chats.last }
+    it { is_expected.to eq SchoolChat.first }
   end
   
   describe "order" do
