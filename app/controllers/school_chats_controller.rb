@@ -1,0 +1,2 @@
+class SchoolChatsController < ApplicationController
+end
