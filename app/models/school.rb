@@ -1,7 +1,7 @@
 class School < ApplicationRecord
   belongs_to :user
   has_many :school_relationships, foreign_key: "school_id", dependent:   :destroy
-  has_many :belonging_students, through: :school_relationships, source: :student
+  has_many :students, through: :school_relationships, source: :student
   has_many :chats, class_name: "SchoolChat", dependent: :destroy
   default_scope -> { order(created_at: :desc) }
   mount_uploader :picture, PictureUploader
@@ -10,6 +10,10 @@ class School < ApplicationRecord
   validates :name, presence: true, length: { maximum: 25 }
   validates :content, length: { maximum: 300 }, allow_nil: true
   
+  def is_student?(student)
+    students.include?(student)
+  end
+  
   private
   
     def picture_size
@@ -17,4 +21,5 @@ class School < ApplicationRecord
         error.add(:picture, "5MB以下の写真のみ使用できます")
       end
     end
+    
 end

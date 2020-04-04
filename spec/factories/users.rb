@@ -1,14 +1,14 @@
 FactoryBot.define do
     
-    sequence :name do |n|
+    sequence :name, class: User do |n|
         "Test User#{n}"
     end
     
-    sequence :email do |n|
+    sequence :email, class: User do |n|
         "test#{n}@user.com"
     end
     
-    sequence :unique_name do |n|
+    sequence :unique_name, class: User do |n|
         "test_user#{n}"
     end
     

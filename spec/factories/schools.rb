@@ -13,9 +13,9 @@ FactoryBot.define do
   # end
   
   factory :school do
-    sub_title { "subtitle" }
+    sub_title { "Test Data" }
     name { Faker::University.name }
-    content { "content" }
+    content { "This is test" }
     with_default_user
     with_default_picture
     
