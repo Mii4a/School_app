@@ -48,8 +48,22 @@ end
 
 # SchoolRelationships
 users = User.all
-school = School.first
-belonging_students = users[2..50]
-belonging_students.each do |student|
-  student.enter(school)
+school = User.first.schools.first
+students = users[2..50]
+students.each do |student|
+    student.enter(school)
+end
+
+# SchoolChats
+users = User.all
+school = User.first.schools.first
+students = users[2..50]
+n = 0
+students.each do |student|
+  n += 1
+  content = "test chat #{n}"
+  student.school_chats.create!(
+    school_id: school.id,
+    content: content
+  )
 end

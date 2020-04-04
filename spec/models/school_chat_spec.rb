@@ -19,4 +19,9 @@ RSpec.describe SchoolChat, type: :model do
     chat.content = nil
     expect(chat).to be_invalid
   end
+  
+  describe "order" do
+    it "expected to be most recent first" do
+    end
+  end
 end
