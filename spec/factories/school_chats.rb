@@ -12,8 +12,16 @@ FactoryBot.define do
   end
   
   factory :school_chat, class: SchoolChat do
-    user
-    school
+    with_default_user
+    with_default_school
     content
+    
+    trait :with_default_user do
+      association :user, factory: :user
+    end
+    
+    trait :with_default_school do
+      association :school, factory: :school
+    end
   end
 end

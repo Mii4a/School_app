@@ -79,6 +79,17 @@ module TestHelper
     }
   end
   
+  # SchoolChatを投稿
+  def request_create_chat(user, school, content="テストデータ")
+    post school_chats_path, params: {
+      school_chat: {
+        user_id: user.id,
+        school_id: school.id,
+        content: content
+      }
+    }
+  end
+  
   #System Spec
   #ユーザー登録する
   def system_signup_as(user)
@@ -128,11 +139,13 @@ module TestHelper
     click_button "提出する"
   end
   
+  # 学校を削除する
   def system_school_destroy
     find(".school-dropdown_trigger").click
     click_on "削除"
   end
   
+  # 学校の内容を更新する
   def system_school_update(options={})
     name = options[:name] || name
     sub_title = options[:sub_title] || "sub_title"
@@ -142,6 +155,14 @@ module TestHelper
     fill_in "サブタイトル", with: sub_title
     fill_in "学校について", with: content
     click_button "再提出する"
+  end
+  
+  # SchoolChatを作成する
+  def system_school_chat_create(user, school, content)
+    system_login_as(user)
+    visit school_path(school)
+    fill_in "コメント", with: content
+    click_on "投稿する"
   end
     
   def ensure_browser_size(width = 1200, height = 720)

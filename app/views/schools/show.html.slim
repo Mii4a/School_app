@@ -4,7 +4,7 @@
   == render 'shared/sidebar'
   div.col.s8
     == render 'schools/profile'
-    ul.school-chat
-      - if @school_chats.any?
+    - if @school_chats.any?
+      ul.school-chat
         == render @school_chats
       = paginate @school_chats

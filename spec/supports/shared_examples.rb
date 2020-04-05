@@ -20,15 +20,17 @@
     it { subject.call; expect(request.fullpath).to eq(path) }
   end
 
-  # create/update/delete model case
+  # create model case
   shared_examples "create model" do |model|
     it { expect{subject.call}.to change{model.count}.by(1) }
   end
-
+  
+  # delete model case
   shared_examples "delete model" do |model|
     it { expect{subject.call}.to change{model.count}.by(-1) }
   end
   
+  # case for NOT to change model's count because of some reasons
   shared_examples "not change model count" do |model|
     it { expect{subject.call}.to change{model.count}.by(0) }
   end
