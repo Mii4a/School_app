@@ -21,6 +21,7 @@ Rails.application.routes.draw do
       get :belonging_students
     end
   end
+  resources :school_chats, only: [:create, :destroy]
   resources :account_activations, only: [:edit]
   resources :password_resets, only: [:new, :create, :edit, :update]
   resources :school_relationships, only: [:create, :destroy]

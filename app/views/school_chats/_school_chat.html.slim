@@ -1,0 +1,25 @@
+li id="#chat_#{school_chat.id}" class="chat-list"
+  .chat-header
+    = link_to gravatar_for(school_chat.user, size: 50), school_chat.user
+    h1.name
+      = school_chat.user.name
+      span.unique_name 
+        |  @#{school_chat.user.unique_name}
+      span.timestamp
+        |  #{time_ago_in_words(school_chat.created_at)}
+    - if @school.user == current_user
+      a class="chat-dropdown_trigger trigger" data-id="#chat-content_#{school_chat.id}"
+        i.material-icons
+          | arrow_drop_down
+      ul class="chat-dropdown_content" id="chat-content_#{school_chat.id}"
+        li            = link_to school_chat, class: "delete",  method: 'delete', data: { confirm: "本当に削除しますか?" } do
+           i.material-icons delete_forever
+           | 削除
+        li.divider
+        li
+          a class="trigger" data-id="#chat-content_#{school_chat.id}"
+            i.material-icons arrow_upward
+            | 閉じる
+  .chat-container
+    span.content
+      = school_chat.content

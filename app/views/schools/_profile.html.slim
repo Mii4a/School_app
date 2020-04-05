@@ -24,8 +24,7 @@
             a class="trigger" data-id="#dropdown-content_#{@school.id}"
               i.material-icons arrow_upward
               | 閉じる
-    - if logged_in?
-      == render 'school_relationships/enter_form'
+    == render 'school_relationships/enter_form'
     .school-container
       p.school-picture
         = image_tag @school.picture.url if @school.picture?
@@ -36,3 +35,4 @@
         = link_to @school.user.name, @school.user
       p.timestamp
         = time_ago_in_words(@school.created_at)
+      == render 'shared/school_chat_form'

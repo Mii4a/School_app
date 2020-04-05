@@ -1,9 +1,8 @@
 - if @user ||= current_user
   .stats
-    .stats-school
-      .stats-school_header
+      .stats-header
         i.material-icons school
-      .stats-school_content
+      .stats-content
         a href="#{schools_user_path(@user)}"
           strong class="stats-count"
             = @user.schools.count

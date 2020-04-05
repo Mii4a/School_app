@@ -2,18 +2,18 @@
         == render 'shared/error_messages', object: f.object
         
         = f.label :name, "ユーザー名"
-        = f.text_field :name, class: "form-control"
+        = f.text_field :name
         
         = f.label :unique_name, "アカウントID"
-        = f.text_field :unique_name, class: "form-control"
+        = f.text_field :unique_name
         
         = f.label :email, "Eメール"
-        = f.email_field :email, class: "form-control"
+        = f.email_field :email
         
         = f.label :password, "パスワード"
-        = f.password_field :password, class: "form-control"
+        = f.password_field :password
         
         = f.label :password_confirmation, "パスワード（確認）"
-        = f.password_field :password_confirmation, class: "form-control"
+        = f.password_field :password_confirmation
         
-        = f.submit "保存する", class: "btn btn-primary"
+        = f.submit "保存する", class: "btn waves-effect waves-light right"

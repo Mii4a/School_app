@@ -1,5 +1,5 @@
 class SchoolsController < ApplicationController
-before_action :logged_in_user, only: [:create, :destroy, :edit, :update]
+before_action :logged_in_user, only: [:create, :destroy, :edit, :update, :show]
 before_action :correct_user, only: [:destroy, :edit, :update]
   
   def create
@@ -22,13 +22,15 @@ before_action :correct_user, only: [:destroy, :edit, :update]
   
   def edit
     @user = current_user
+    @school = School.find(params[:id])
     @school_build = @user.schools.build
   end
   
   def show
     @school = School.find(params[:id])
+    @school_chats = @school.school_chats.page(params[:page]).per(10)
     if logged_in?
-      @user = current_user
+      @school_chats_build = current_user.school_chats.build 
       @school_build = current_user.schools.build
     end
   end
@@ -54,7 +56,8 @@ before_action :correct_user, only: [:destroy, :edit, :update]
   end
   
   def correct_user
-    @school = current_user.schools.find(params[:id])
-    redirect_to root_url if @school.nil?
+    @user = current_user
+    @school = School.find(params[:id])
+    redirect_to root_url  unless @user == @school.user
   end
 end

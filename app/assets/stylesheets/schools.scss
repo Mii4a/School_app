@@ -5,22 +5,19 @@
 
 // schools
 
-.schools{
+.schools {
     list-style:none;
     padding: 0;
     > li {
-        position: relative;
-        padding: 10px;
+        background-color: rgba(147, 220, 169, .1);
         border-radius: 5px;
         border-top: 1px solid #e8e8e8;
         border-left: 1px solid #e8e8e8;
         border-right: 1px solid #e8e8e8;
+        position: relative;
+        padding: 10px;
         &:nth-of-type(1) {
-        border-top: none;
-        }
-        &:hover{
-            background-color: rgba(0, 0, 0, .05);
-            cursor: pointer;
+            border-top: none;
         }
     }
     &-header {
@@ -106,22 +103,76 @@
 }
 
 
+// school-dropdown
+
+.school-dropdown_trigger{
+    border-radius: 50%;
+    height: 25px;
+    margin-left: auto;
+    position: absolute;
+    right: 10px;
+    transition: background-color .3s;
+    top: 10px;
+    width: 25px;
+    &:hover {
+        background-color: rgba(0, 0, 0, .1);
+    }
+    i {
+        color: #57c597;
+    }
+}
+
+.school-dropdown_content {
+    background-color: #fff;
+    border-radius: 3px;
+    box-shadow: 0px 1px 2px 1px rgba(0, 0, 0, .2);
+    display: none;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    z-index: 2;
+    li {
+        width: 120px;
+        transition: background-color .3s;
+        &.divider {
+        min-height: 0;
+        height: 1;
+        padding: 0;
+        }
+    }
+    a {
+        display: block;
+        padding: 10px;
+        font-size: 1rem;
+        color: rgba(0, 0, 0, .7);
+        opacity: .6;
+        &:hover {
+            background-color: rgba(0, 0, 0, .05);
+        }
+        &.delete {
+            color: red;
+        }
+    }
+    i {
+        position: relative;
+        top: 4px;
+        margin-right: 7px;
+        font-size: 1.4rem;
+        // color: rgba(0, 0, 0, .7);
+        bottom: 0;
+    }
+}
+
+
 // school-profile
 
 .school-profile {
-    position: relative;
-    padding: 10px;
+    background-color: rgba(147, 220, 169, .1);
+    border: 1px solid #e8e8e8;
     border-radius: 5px;
-    border-top: 1px solid #e8e8e8;
-    border-left: 1px solid #e8e8e8;
-    border-right: 1px solid #e8e8e8;
-    &:nth-of-type(1) {
     border-top: none;
-    }
-    &:hover{
-        background-color: rgba(0, 0, 0, .05);
-        cursor: pointer;
-    }
+    padding: 10px;
+    position: relative;
     .school-header {
         display: flex;
         margin-bottom: 10px;
@@ -187,62 +238,5 @@
         right: 45px;
         top: 10px;
         z-index: 1;
-    }
-}
-
-// school-dropdown
-
-.school-dropdown_trigger{
-    width: 25px;
-    height: 25px;
-    margin-left: auto;
-    border-radius: 50%;
-    transition: background-color .3s;
-    &:hover {
-        background-color: rgba(0, 0, 0, .1);
-    }
-    i {
-        color: #57c597;
-    }
-}
-
-.school-dropdown_content {
-    background-color: #fff;
-    border-radius: 3px;
-    box-shadow: 0px 1px 2px 1px rgba(0, 0, 0, .2);
-    display: none;
-    position: absolute;
-    right: 10px;
-    top: 10px;
-    z-index: 2;
-    li {
-        width: 120px;
-        transition: background-color .3s;
-        &.divider {
-        min-height: 0;
-        height: 1;
-        padding: 0;
-        }
-    }
-    a {
-        display: block;
-        padding: 10px;
-        font-size: 1rem;
-        color: rgba(0, 0, 0, .7);
-        opacity: .6;
-        &:hover {
-            background-color: rgba(0, 0, 0, .05);
-        }
-        &.delete {
-            color: red;
-        }
-    }
-    i {
-        position: relative;
-        top: 4px;
-        margin-right: 7px;
-        font-size: 1.4rem;
-        // color: rgba(0, 0, 0, .7);
-        bottom: 0;
     }
 }

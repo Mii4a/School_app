@@ -1,6 +1,11 @@
 class SessionsController < ApplicationController
-    def new
+    
+  def new
+    if logged_in?
+      flash[:info] = "既にログインしています"
+      redirect_back_or root_url
     end
+  end
     
     def create
         @user = User.find_by(email: params[:session][:email].downcase)

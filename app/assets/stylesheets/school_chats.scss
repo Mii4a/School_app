@@ -1,3 +1,107 @@
 // Place all the styles related to the SchoolChats controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.chat-form {
+    form.new_school_chat {
+        display: inline-block;
+        width: 100%;
+        .btn {
+        margin-left: auto;
+        }
+    }
+}
+
+.school-chat {
+    .chat-container {
+        padding: 0 10px 0 40px;
+    }
+    .chat-header {
+        display: flex;
+        position: relative;
+        .gravatar {
+            height: 30px;
+            margin-bottom: 0;
+            width: 30px;
+        }
+        .name {
+            font-size: 1.2rem;
+            letter-spacing: -1px;
+            margin: 0;
+            padding-top: 2px;
+        }
+        .unique_name {
+            color: #999;
+            font-size: 1rem;
+            margin-right: 3px;
+        }
+        .timestamp {
+            color: #aaa;
+            font-size: .9rem;
+            letter-spacing: -1px;
+            margin: 0;
+        }
+    }
+    .chat-list {
+        background-color: rgba(147, 220, 169, .1);
+        border-bottom: 1px solid #e8e8e8;
+        border-left: 1px solid #e8e8e8;
+        border-right: 1px solid #e8e8e8;
+        margin: 0;
+        padding: 10px;
+    }
+}
+
+.chat-dropdown_trigger{
+    width: 25px;
+    height: 25px;
+    margin-left: auto;
+    border-radius: 50%;
+    transition: background-color .3s;
+    &:hover {
+        background-color: rgba(0, 0, 0, .1);
+    }
+    i {
+        color: #57c597;
+    }
+}
+
+.chat-dropdown_content {
+    background-color: #fff;
+    border-radius: 3px;
+    box-shadow: 0px 1px 2px 1px rgba(0, 0, 0, .2);
+    display: none;
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    z-index: 2;
+    a {
+        display: block;
+        padding: 10px;
+        font-size: 1rem;
+        color: rgba(0, 0, 0, .7);
+        opacity: .6;
+        &:hover {
+            background-color: rgba(0, 0, 0, .05);
+        }
+        &.delete {
+            color: red;
+        }
+    }
+    i {
+        position: relative;
+        top: 4px;
+        margin-right: 7px;
+        font-size: 1.4rem;
+        bottom: 0;
+    }
+    li {
+        width: 120px;
+        transition: background-color .3s;
+        &.divider {
+        min-height: 0;
+        height: 1;
+        padding: 0;
+        }
+    }
+}

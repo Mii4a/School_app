@@ -9,7 +9,9 @@
             p.name = @school.name
         .edit-container 
           == render 'shared/error_messages', object: f.object
-  
+          
+          = hidden_field_tag :id, @school.id
+          
           = f.label :name, "学校名"
           = f.text_field :name
       

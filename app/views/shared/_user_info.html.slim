@@ -1,6 +1,6 @@
 section.user-info
   = link_to gravatar_for(current_user, size: 50), current_user
-  h1
+  h1.name
     = current_user.name
     p.unique_name 
       | @#{current_user.unique_name}

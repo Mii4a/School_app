@@ -2,7 +2,7 @@ class School < ApplicationRecord
   belongs_to :user
   has_many :school_relationships, foreign_key: "school_id", dependent:   :destroy
   has_many :students, through: :school_relationships, source: :student
-  has_many :chats, class_name: "SchoolChat", dependent: :destroy
+  has_many :school_chats, class_name: "SchoolChat", dependent: :destroy
   default_scope -> { order(created_at: :desc) }
   mount_uploader :picture, PictureUploader
   validates :user_id, presence: true
