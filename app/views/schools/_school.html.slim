@@ -6,7 +6,7 @@ li id="school-#{ school.id }"
           = link_to school.sub_title, school
         p.name
           = link_to school.name, school
-      - if school.user == current_user
+      - if current_user == school.user
         a class="school-dropdown_trigger trigger" data-id="#dropdown-content_#{school.id}" alt="学校操作メニュー"
           i.material-icons
             | arrow_drop_down

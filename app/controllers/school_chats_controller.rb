@@ -17,6 +17,12 @@ class SchoolChatsController < ApplicationController
     end
   end
   
+  def destroy
+    SchoolChat.find(params[:id]).destroy
+    flash[:success] = "削除に成功しました"
+    redirect_to request.referrer || root_url
+  end
+  
   private
   
   def school_chat_params

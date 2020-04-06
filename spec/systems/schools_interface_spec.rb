@@ -70,4 +70,15 @@ RSpec.describe "School", type: :system, js: true do
           end
       end
   end
+  
+  describe "GET #show" do
+    subject(:visit_school){ visit school_path(school) }
+    context "when not logged in" do
+      let(:school){ create(:school) }
+      it "redirects to login path" do
+        visit_school
+        expect(page).to have_content "ログインして下さい"
+      end
+    end
+  end
 end

@@ -158,11 +158,16 @@ module TestHelper
   end
   
   # SchoolChatを作成する
-  def system_school_chat_create(user, school, content)
+  def system_school_chat_create(user, school, content="test chat")
     system_login_as(user)
     visit school_path(school)
     fill_in "コメント", with: content
     click_on "投稿する"
+  end
+  
+  def system_school_chat_destroy(user, school)
+    find(".chat-dropdown_trigger").click
+    click_on '削除'
   end
     
   def ensure_browser_size(width = 1200, height = 720)
