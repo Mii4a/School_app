@@ -29,7 +29,7 @@ li id="school-#{ school.id }"
           = link_to school.sub_title, school
         p.name
           = link_to school.name, school
-    .school-container
+    .schools-container
       = image_tag school.picture.url, class: "school-container_picture" if school.picture?
       p.schools-container_content
         = school.content

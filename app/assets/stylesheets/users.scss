@@ -24,8 +24,9 @@
 // user profile
 
 .user-profile {
-    padding-top: 1px;
     display: flex;
+    margin-top: 0;
+    padding-top: 1px;
     .gravatar {
         height: 50px;
         width: 50px;
