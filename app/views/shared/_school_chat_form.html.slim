@@ -3,5 +3,5 @@
     input type="hidden" name="school_chat[school_id]" id="school_chat_school_id" value="#{@school.id}"
     
     = f.label :content, "コメント"
-    = f.text_field :content
+    = f.text_area :content, class: "materialize-textarea"
     = f.submit "投稿する", class: "btn waves-effect waves-light right"
