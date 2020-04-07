@@ -7,8 +7,9 @@
 
 .schools, .feed_items {
     list-style:none;
-    padding: 0;
+    padding: 20px 0 0;
     > li {
+        box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2) inset;
         background-color: rgba(147, 220, 169, .1);
         border-radius: 5px;
         border-top: 1px solid #e8e8e8;
@@ -48,7 +49,6 @@
         display: flex;
         border-left: 1px solid #e8e8e8;
         border-right: 1px solid #e8e8e8;
-        margin-bottom: 10px;
         padding: 10px 10px 0;
         text-decoration: none;
         &_picture {
@@ -68,8 +68,9 @@
     &-container {
         border-bottom: 1px solid #e8e8e8;
         border-left: 1px solid #e8e8e8;
+        border-radius: 0 0 10px 10px;
         border-right: 1px solid #e8e8e8;
-        padding: 0 10px 10px;
+        padding: 10px 10px 10px;
         &_picture {
             border-radius: 5px;
             height: auto;
@@ -173,10 +174,69 @@
 }
 
 
+// dropdown content in entered_schools and schools
+
+.stats-dropdown_trigger{
+    border-radius: 50%;
+    height: 25px;
+    margin-left: auto;
+    position: absolute;
+    right: 10px;
+    transition: background-color .3s;
+    top: 10px;
+    width: 25px;
+    &:hover {
+        background-color: rgba(0, 0, 0, .1);
+    }
+    i {
+        color: #57c597;
+    }
+}
+
+.stats-dropdown_content {
+    background-color: #fff;
+    border-radius: 3px;
+    box-shadow: 0px 1px 2px 1px rgba(0, 0, 0, .2);
+    display: none;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    z-index: 2;
+    li {
+        width: 120px;
+        transition: background-color .3s;
+        &.divider {
+        min-height: 0;
+        height: 1;
+        padding: 0;
+        }
+    }
+    a {
+        display: block;
+        padding: 10px;
+        font-size: 1rem;
+        color: rgba(0, 0, 0, .7);
+        opacity: .6;
+        &:hover {
+            background-color: rgba(0, 0, 0, .05);
+        }
+        &.delete {
+            color: red;
+        }
+    }
+    i {
+        position: relative;
+        top: 4px;
+        margin-right: 7px;
+        font-size: 1.4rem;
+        bottom: 0;
+    }
+}
 // school-profile
 
 .school {
     background-color: rgba(147, 220, 169, .1);
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2) inset;
     border-radius: 5px;
     border-top: none;
     margin-top: 20px;
@@ -212,7 +272,6 @@
         display: flex;
         border-left: 1px solid #e8e8e8;
         border-right: 1px solid #e8e8e8;
-        margin-bottom: 10px;
         padding: 10px 10px 0;
         text-decoration: none;
         &_picture {
@@ -233,7 +292,7 @@
         border-bottom: 1px solid #e8e8e8;
         border-left: 1px solid #e8e8e8;
         border-right: 1px solid #e8e8e8;
-        padding: 0 10px 10px;
+        padding: 10px 10px 10px;
         &_picture {
             border-radius: 5px;
             height: auto;

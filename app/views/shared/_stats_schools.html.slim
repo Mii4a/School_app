@@ -2,16 +2,16 @@ ul.schools
   - @schools.each do |school|
     li id="school-#{ school.id }"
       .schools-header
-        = image_tag school.picture.url if school.picture?
+        = image_tag school.picture.url, class: "schools-header_picture" if school.picture?
         .schools-titles
            span.subtitle
              = link_to school.sub_title, school
            p.name
              = link_to school.name, school
         - if school.user == current_user
-          a class="school-dropdown_trigger trigger" data-id="#dropdown-content_#{school.id}" alt="学校操作メニュー"
+          a class="stats-dropdown_trigger trigger" data-id="#dropdown-content_#{school.id}" alt="学校操作メニュー"
             i.material-icons arrow_drop_down
-          ul class="school-dropdown_content" id="dropdown-content_#{school.id}"
+          ul class="stats-dropdown_content" id="dropdown-content_#{school.id}"
             li
               = link_to school, class: "delete",  method: 'delete', data: { confirm: "本当に削除しますか?" } do
                i.material-icons delete_forever
