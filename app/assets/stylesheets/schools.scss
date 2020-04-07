@@ -5,26 +5,53 @@
 
 // schools
 
-.schools {
+.schools, .feed_items {
     list-style:none;
     padding: 0;
     > li {
         background-color: rgba(147, 220, 169, .1);
         border-radius: 5px;
         border-top: 1px solid #e8e8e8;
-        border-left: 1px solid #e8e8e8;
-        border-right: 1px solid #e8e8e8;
         position: relative;
-        padding: 10px;
         &:nth-of-type(1) {
             border-top: none;
         }
     }
+    &-user {
+        background-color: rgba(55, 212, 187, .8);
+        border-bottom: 1px solid #e0e0e0;
+        border-left: 1px solid #e8e8e8;
+        border-right: 1px solid #e8e8e8;
+        border-radius: 5px 5px 0 0;
+        padding: 10px 10px 8px;
+        &_name {
+            color: #fff;
+            font-size: 1.2rem;
+            padding-top: 2px;
+        }
+        &_timestamp {
+            color: #fff;
+            float: right;
+            font-size: 1.1rem;
+            padding-top: 2px;
+        }
+        .gravatar {
+            height: 20px;
+            margin-bottom: 0;
+            margin-right: 8px;
+            position: relative;
+            top: -1px;
+            width: 20px;
+        }
+    }
     &-header {
         display: flex;
+        border-left: 1px solid #e8e8e8;
+        border-right: 1px solid #e8e8e8;
         margin-bottom: 10px;
+        padding: 10px 10px 0;
         text-decoration: none;
-        > img {
+        &_picture {
             border-radius: 50%;
             width: 50px;
             height: 50px;
@@ -33,42 +60,25 @@
         a {
             color: #333;
         }
-        .detail {
-            float: right;
+        .name {
+            font-size: 1.2rem;
+            font-weight: bold;
         }
     }
-    .name {
-        font-size: 1.2rem;
-        font-weight: bold;
-    }
-    &-user {
-        font-size: 1.2rem;
-        padding-top: 0;
-    }
-    .gravatar {
-        height: 20px;
-        margin-bottom: 0;
-        margin-right: 8px;
-        position: relative;
-        top: -1px;
-        width: 20px;
-    }
-   &-img {
-       img {
-           border-radius: 5px;
-           height: auto;
-           max-width: 100%;
-           max-height: 100%;
-           text-align: center;
-           width: auto;
-       }
-   }
-    &-timestamp {
-        color: #aaa;
-        position: absolute;
-        right: 45px;
-        top: 10px;
-        z-index: 1;
+    &-container {
+        border-bottom: 1px solid #e8e8e8;
+        border-left: 1px solid #e8e8e8;
+        border-right: 1px solid #e8e8e8;
+        padding: 0 10px 10px;
+        &_picture {
+            border-radius: 5px;
+            height: auto;
+            margin-bottom: 10px;
+            max-width: 100%;
+            max-height: 100%;
+            text-align: center;
+            width: auto;
+        }
     }
 }
 
@@ -112,7 +122,7 @@
     position: absolute;
     right: 10px;
     transition: background-color .3s;
-    top: 10px;
+    top: 50px;
     width: 25px;
     &:hover {
         background-color: rgba(0, 0, 0, .1);
@@ -129,7 +139,7 @@
     display: none;
     position: absolute;
     right: 10px;
-    top: 10px;
+    top: 50px;
     z-index: 2;
     li {
         width: 120px;
@@ -158,7 +168,6 @@
         top: 4px;
         margin-right: 7px;
         font-size: 1.4rem;
-        // color: rgba(0, 0, 0, .7);
         bottom: 0;
     }
 }
@@ -166,18 +175,47 @@
 
 // school-profile
 
-.school-profile {
+.school {
     background-color: rgba(147, 220, 169, .1);
-    border: 1px solid #e8e8e8;
     border-radius: 5px;
     border-top: none;
-    padding: 10px;
+    margin-top: 20px;
     position: relative;
-    .school-header {
+    &-user {
+        background-color: rgba(55, 212, 187, .8);
+        border-bottom: 1px solid #e0e0e0;
+        border-left: 1px solid #e8e8e8;
+        border-right: 1px solid #e8e8e8;
+        border-radius: 5px 5px 0 0;
+        padding: 10px 10px 8px;
+        &_name {
+            color: #fff;
+            font-size: 1.2rem;
+            padding-top: 2px;
+        }
+        &_timestamp {
+            color: #fff;
+            float: right;
+            font-size: 1.1rem;
+            padding-top: 2px;
+        }
+        .gravatar {
+            height: 20px;
+            margin-bottom: 0;
+            margin-right: 8px;
+            position: relative;
+            top: -1px;
+            width: 20px;
+        }
+    }
+    &-header {
         display: flex;
+        border-left: 1px solid #e8e8e8;
+        border-right: 1px solid #e8e8e8;
         margin-bottom: 10px;
+        padding: 10px 10px 0;
         text-decoration: none;
-        > img {
+        &_picture {
             border-radius: 50%;
             width: 50px;
             height: 50px;
@@ -190,8 +228,20 @@
             font-size: 1.2rem;
             font-weight: bold;
         }
-        .detail {
-            float: right;
+    }
+    &-container {
+        border-bottom: 1px solid #e8e8e8;
+        border-left: 1px solid #e8e8e8;
+        border-right: 1px solid #e8e8e8;
+        padding: 0 10px 10px;
+        &_picture {
+            border-radius: 5px;
+            height: auto;
+            margin-bottom: 10px;
+            max-width: 100%;
+            max-height: 100%;
+            text-align: center;
+            width: auto;
         }
     }
     .btn {
@@ -210,33 +260,5 @@
         &:hover {
             box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2) inset;
         }
-    }
-    .user {
-        font-size: 1.2rem;
-        padding-top: 0;
-    }
-    .gravatar {
-        height: 20px;
-        margin-bottom: 0;
-        margin-right: 8px;
-        position: relative;
-        top: -1px;
-        width: 20px;
-    }
-   .school-picture {
-       img {
-           border-radius: 5px;
-           height: auto;
-           max-width: 100%;
-           max-height: 100%;
-           width: auto;
-       }
-   }
-    .timestamp {
-        color: #aaa;
-        position: absolute;
-        right: 45px;
-        top: 10px;
-        z-index: 1;
     }
 }
