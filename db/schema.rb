@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_03_134915) do
+ActiveRecord::Schema.define(version: 2020_04_08_085734) do
 
   create_table "school_chats", force: :cascade do |t|
     t.integer "user_id"
@@ -43,6 +43,16 @@ ActiveRecord::Schema.define(version: 2020_04_03_134915) do
     t.string "picture"
     t.index ["user_id", "created_at"], name: "index_schools_on_user_id_and_created_at"
     t.index ["user_id"], name: "index_schools_on_user_id"
+  end
+
+  create_table "user_relationships", force: :cascade do |t|
+    t.integer "followed_id"
+    t.integer "follower_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["followed_id", "follower_id"], name: "index_user_relationships_on_followed_id_and_follower_id"
+    t.index ["followed_id"], name: "index_user_relationships_on_followed_id"
+    t.index ["follower_id"], name: "index_user_relationships_on_follower_id"
   end
 
   create_table "users", force: :cascade do |t|
