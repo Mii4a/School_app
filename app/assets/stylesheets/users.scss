@@ -25,10 +25,12 @@
 
 .user-profile {
     display: flex;
-    margin-top: 20px;
-    padding-top: 1px;
+    padding-top: 20px;
     .gravatar {
         height: 50px;
         width: 50px;
+    }
+    .follow-form {
+        margin-left: auto;
     }
 }

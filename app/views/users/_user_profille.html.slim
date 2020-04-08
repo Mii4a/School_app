@@ -1,0 +1,7 @@
+section.user-info.user-profile
+  = link_to gravatar_for(@user, size: 50), @user
+  h1.name
+    = @user.name
+    p.unique_name 
+      | @#{@user.unique_name}
+  == render 'users/follow_form'
