@@ -55,9 +55,6 @@ students.each do |student|
 end
 
 # SchoolChats
-users = User.all
-school = User.first.schools.first
-students = users[2..50]
 n = 0
 students.each do |student|
   n += 1
@@ -67,3 +64,10 @@ students.each do |student|
     content: content
   )
 end
+
+# UserRelationships
+user = User.first
+following = users[2..50]
+follower = users[3..40]
+following.each { |followed| user.follow(followed) }
+follower.each { |follower| follower.follow(user) }
