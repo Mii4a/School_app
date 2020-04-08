@@ -1,0 +1,5 @@
+div id="follow-form_#{@user.id}"
+  - if @user.followed?(@user)
+    == render 'follow'
+  - else
+    == render 'unfollow'

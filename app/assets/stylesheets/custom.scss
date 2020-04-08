@@ -204,9 +204,10 @@ footer{
 // stats
 
 .stats {
-    overflow: auto;
     margin-top: 0;
+    overflow: auto;
     padding: 0;
+    width: 100%;
     &-header {
         background-color: #26af9a;
         border: 1px solid #26af9a;
@@ -239,24 +240,6 @@ footer{
         color: #fff;
         position: relative;
         top: 3px;
-    }
-}
-
-
-.stats-dropdown_trigger{
-    border-radius: 50%;
-    height: 25px;
-    margin-left: auto;
-    position: absolute;
-    right: 10px;
-    transition: background-color .3s;
-    top: 10px;
-    width: 25px;
-    &:hover {
-        background-color: rgba(0, 0, 0, .1);
-    }
-    i {
-        color: #57c597;
     }
 }
 
