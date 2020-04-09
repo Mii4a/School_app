@@ -76,5 +76,4 @@ RSpec.describe "SchoolChat", type: :system do
       end
     end
   end
-      
 end

@@ -5,7 +5,9 @@ RSpec.describe "UserRelationships", type: :request do
   let(:other_user){ create(:other_user) }
   
   describe "POST #create" do
-    subject{ Proc.new{ request_create_user_relationship(other_user) } }
+    subject{ Proc.new{ post user_relationship_path,
+      params: {followed_id: other_user.id }
+    } }
     context "when logged in" do
       before { request_login_as(user) }
       it_behaves_like "create model", UserRelationship
