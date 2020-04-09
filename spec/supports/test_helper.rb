@@ -90,6 +90,18 @@ module TestHelper
     }
   end
   
+  # UserRelationshipを作成
+  def request_create_user_relationship(other_user)
+    post user_relationships_path, params: {
+      followed_id: other_user.id
+    }
+  end
+  
+  # UserRelationshipを削除
+  def request_destroy_user_relationship(other_user)
+    delete user_relationship_path(other_user)
+  end
+  
   #System Spec
   #ユーザー登録する
   def system_signup_as(user)
