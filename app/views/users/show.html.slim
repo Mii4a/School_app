@@ -8,7 +8,7 @@
         = @user.name
         p.unique_name 
           | @#{@user.unique_name}
-      == render 'users/follow_form'
+      == render 'user_relationships/follow_form'
     == render 'shared/stats'
     - if @user.schools.any?
       ol.schools

@@ -1,5 +1,5 @@
 - unless current_user?(@user)
-  div id="follow-form_#{@user.id}" class="follow-form"
+  div id="follow_form" class="follow-form"
     - if current_user.followed?(@user)
       == render 'users/unfollow'
     - else

@@ -5,11 +5,11 @@
         i.material-icons school
       .stats-container
         a href="#{schools_user_path(@user)}"
-          strong class="stats-count"
+          strong id="schools" class="stats-count"
             = @user.schools.count
           | 投稿
         a href="#{entered_schools_user_path(@user)}"
-          strong class="stats-count"
+          strong id="entered_schools" class="stats-count"
             = @user.entered_schools.count
           | お気に入り
     .stats
@@ -17,10 +17,10 @@
         i.material-icons people
       .stats-container
         a href="#{followers_user_path(@user)}"
-          strong class="stats-count"
+          strong id="follower" class="stats-count"
             = @user.follower.count
           | フォロワー
         a href="#{following_user_path(@user)}"
-          strong class="stats-count"
+          strong id="following" class="stats-count"
             = @user.following.count
           | フォロー
