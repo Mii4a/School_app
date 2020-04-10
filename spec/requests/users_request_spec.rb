@@ -26,7 +26,7 @@ RSpec.describe "Users", type: :request do
     context "with valid params" do
       before { get signup_path }
       subject { Proc.new { post users_path,
-                          params: { user: valid_params } } }
+                           params: { user: valid_params } } }
       it_behaves_like "create model", User
       it_behaves_like "redirect to", '/'
       it_behaves_like "info message", "アカウント有効化のために、メールをご確認ください"
@@ -88,7 +88,7 @@ RSpec.describe "Users", type: :request do
     end
   end
   
-  describe "DELETE user" do
+  describe "DELETE #destroy" do
     context "when not logged in" do
       it "does not change User counts" do
         expect{ user.destroy }.not_to change{ User.count }

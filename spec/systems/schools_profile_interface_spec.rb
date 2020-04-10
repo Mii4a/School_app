@@ -10,8 +10,8 @@ RSpec.describe "SchoolsProfile", type: :system do
             visit school_path(school)
             expect(page).to have_selector '.school-header .subtitle', text: school.sub_title
             expect(page).to have_selector '.school-header .name', text: school.name
-            expect(page).to have_selector '.school-container .school-content', text: school.content
-            expect(page).to have_selector '.school-container .timestamp'
+            expect(page).to have_selector '.school-container_content', text: school.content
+            expect(page).to have_selector '.school-user_timestamp'
             expect(page).to have_link school.user.name
         end
     end
