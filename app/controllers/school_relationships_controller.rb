@@ -4,12 +4,18 @@ class SchoolRelationshipsController < ApplicationController
   def create
     @school = School.find(params[:school_id])
     current_user.enter(@school)
-    redirect_to @school
+    respond_to do |format|
+      format.html { redirect_to @school }
+      format.js
+    end
   end
   
   def destroy
     @school = SchoolRelationship.find(params[:id]).school
     current_user.graduate(@school)
-    redirect_to @school
+    respond_to do |format|
+      format.html { redirect_to @school }
+      format.js
+    end
   end
 end
