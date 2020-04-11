@@ -81,6 +81,18 @@ p {
     line-height: 1.7em;
 }
 
+#logo {
+    color: #fff;
+    float: left;
+    font-family: $roboto;
+    font-size: 2.3em;
+    font-weight: bold;
+    height: auto;
+    letter-spacing: -1px;
+    margin: 1px 0 -1px 20px;
+    text-transform: uppercase;
+    text-decoration: none;
+}
 
 // header
 
@@ -89,16 +101,6 @@ p {
         background-color: #57c597;
     }
     &-logo {
-        color: #fff;
-        float: left;
-        font-family: $roboto;
-        font-size: 2.3em;
-        font-weight: bold;
-        height: auto;
-        letter-spacing: -1px;
-        margin: 1px 0 -1px 20px;
-        text-transform: uppercase;
-        text-decoration: none;
     }
     .small-logo {
         font-size: .9rem;
