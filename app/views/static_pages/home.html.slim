@@ -4,4 +4,39 @@
     == render 'shared/sidebar'
     div class="col s8" id="feed-items_content"
       == render 'shared/feed'
-      
+- else
+  div class="home" id="home"
+    .home-title
+      p.title
+        | Schoop
+      p.subtitle
+        | School × Scoop
+        br
+          | 学校について知れる・紹介できるSNS
+    div class="home-explanation" id="home-explanation"
+      .home-explanation_header
+        p 
+          | Schoop
+      .home-explanation_content
+        p 
+          | Schoopは、
+          strong
+            ' Schoop × Scoop
+          br
+            | を目標とした、学校に焦点を当てたSNSです。
+        ul
+          li
+            | ある学校について
+            strong
+              | 知りたい
+          li
+            | ある学校の良いところを
+            strong
+              | 紹介したい
+        p
+          | そういった学生たちの望みを叶えるため作成されました。
+          br
+            | さあ、
+            = link_to "アカウント登録", signup_path
+            | していろいろな学校を見てみましょう！
+            

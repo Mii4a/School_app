@@ -11,12 +11,6 @@ html
 
   body
     == render 'layouts/header'
-    .container
-      - flash.each do |message_type, message|
-        = content_tag :div, message, class: "alert alert-#{message_type}"
-      == yield
-      == render 'layouts/footer'
-      = debug(params) if Rails.env.development?
     ul id="slide-out" class="sidenav slidebar sidebar"
       - if logged_in?
         == render 'layouts/slidebar_after_log_in'
@@ -25,6 +19,12 @@ html
     a data-target="slide-out" class="sidenav-trigger show-on-small"
       i class="material-icons"
          | menu
+    .container
+      - flash.each do |message_type, message|
+        = content_tag :div, message, class: "alert alert-#{message_type}"
+      == yield
+    == render 'layouts/footer'
+   
 
 javascript:
   var content = $("div.col");
@@ -43,5 +43,15 @@ javascript:
     var content = $(this).data('id');
     $(content).slideToggle(50);
   });
+  
+  var homeExplanation = document.getElementById("home-explanation").offsetTop;
+  var home = document.getElementById("home");
+  window.onscroll = function(){
+    if (window.pageYOffset > 0) {
+      var opacity = (window.pageYOffset / homeExplanation) * 2;
+      console.log(opacity);
+      home.style.background = "linear-gradient(rgba(255, 255, 255, "+ opacity +"), rgba(255, 255, 255, "+ opacity +")), url(/assets/home-a2d887ff6e2c6abbd5622c4825d3b98fa93ee9c0da7b34232ddd200e17e158f9.jpg)";
+    }
+  }
     
   

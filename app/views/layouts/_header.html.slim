@@ -1,12 +1,12 @@
-header
+header.header
     nav
       .nav-wrapper
-        = link_to root_path, id: "logo" do
+        = link_to root_path, id: "logo", class: "header-logo" do
           | Schoop
         .current-location
           i.material-icons.left chevron_right
           span.title.left = yield(:title)
-        ul.right.hide-on-med-and-down
+        ul.right.hide-on-small-only
           li = link_to root_path, alt: "ホーム画面に遷移する" do
             i.material-icons home
           li = link_to help_path, alt: "ヘルプに遷移する" do
@@ -23,4 +23,5 @@ header
               li = link_to "ログアウト", logout_path, method: "delete"
           - else
             li = link_to "ログイン", login_path
+            li = link_to "アカウント登録", signup_path
             
