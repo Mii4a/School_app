@@ -1,0 +1,11 @@
+class CreateRetweets < ActiveRecord::Migration[5.2]
+  def change
+    create_table :retweets do |t|
+      t.integer :user_id
+      t.integer :school_id
+
+      t.timestamps
+    end
+    add_index :retweets, [:user_id, :school_id]
+  end
+end
