@@ -10,14 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_11_182025) do
+ActiveRecord::Schema.define(version: 2020_04_12_051301) do
 
   create_table "retweets", force: :cascade do |t|
     t.integer "user_id"
     t.integer "school_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id", "school_id"], name: "index_retweets_on_user_id_and_school_id"
+    t.index ["user_id", "school_id"], name: "index_retweets_on_user_id_and_school_id", unique: true
   end
 
   create_table "school_chats", force: :cascade do |t|
@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(version: 2020_04_11_182025) do
     t.datetime "updated_at", null: false
     t.text "content"
     t.string "picture"
+    t.integer "retweets_count", default: 0, null: false
     t.index ["user_id", "created_at"], name: "index_schools_on_user_id_and_created_at"
     t.index ["user_id"], name: "index_schools_on_user_id"
   end

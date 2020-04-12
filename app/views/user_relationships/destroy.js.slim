@@ -1,2 +1,2 @@
-| $("#follow_form").html("#{ j(render 'users/follow')}");
+| $("#follow_form").html("#{ escape_javascript(render 'user_relationships/follow')}");
 | $("#followers").html("#{ @user.follower.count}");

@@ -39,7 +39,7 @@ input:-internal-autofill-selected {
 }
 
 .col.m8 {
-    padding-top: 5% !important;
+    padding-top: 20% !important;
 }
 
 .btn-flat {
@@ -52,6 +52,10 @@ input:-internal-autofill-selected {
     &:hover {
         box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2) inset !important;
     }
+}
+
+.container {
+    min-height: calc(100vh - 64px);
 }
 
 // typography
@@ -212,6 +216,40 @@ p {
     }
 }
 
+.miniforms {
+    display: flex;
+    padding: 10px;
+    &-button {
+        background: transparent;
+        border: none;
+        color: rgba(0, 0, 0, .7);
+        position: relative;
+        &_count{
+            color: rgba(0, 0, 0, .7);
+            font-size: 1.1rem;
+            font-weight: bold;
+            margin-left: 2px;
+            position: absolute;
+            top: 1px;
+        }
+        i {
+            color: rgba(0, 0, 0, .7);
+            font-size: 1.4rem;
+        }
+    }
+    .active {
+        margin-right: 5px;
+        i {
+            color: #26a69a;
+        }
+        span {
+            color: #26a69a;
+        }
+    }
+    button:active, button:focus {
+        background-color: transparent !important;
+    }
+}
 
 // home
 
@@ -500,6 +538,10 @@ span.picture{
 
 
 // miscellaneous
+
+.alert {
+    margin: 0;
+}
 
 .debug_dump{
     clear: both;

@@ -1,1 +1,2 @@
-| $("#enter_form").html("#{ escape_javascript(render 'schools/graduate') }");
+| $("#enter_form").html("#{ escape_javascript(render 'school_relationships/graduate') }");
+| $("#students-count_#{@school.id}").html(#{@school.students.count});

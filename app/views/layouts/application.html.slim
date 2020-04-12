@@ -5,12 +5,17 @@ html
     = csrf_meta_tags 
     = csp_meta_tag 
 
-    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'true'
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'true'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'true'
 
 
   body
     == render 'layouts/header'
+    .container
+      - flash.each do |message_type, message|
+        = content_tag :div, message, class: "alert alert-#{message_type}"
+      == yield
+    == render 'layouts/footer'
     ul id="slide-out" class="sidenav slidebar sidebar"
       - if logged_in?
         == render 'layouts/slidebar_after_log_in'
@@ -19,12 +24,6 @@ html
     a data-target="slide-out" class="sidenav-trigger show-on-small"
       i class="material-icons"
          | menu
-    .container
-      - flash.each do |message_type, message|
-        = content_tag :div, message, class: "alert alert-#{message_type}"
-      == yield
-    == render 'layouts/footer'
-   
 
 javascript:
   var content = $("div.col");

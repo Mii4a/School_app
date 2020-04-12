@@ -6,6 +6,6 @@ class CreateRetweets < ActiveRecord::Migration[5.2]
 
       t.timestamps
     end
-    add_index :retweets, [:user_id, :school_id]
+    add_index :retweets, [:user_id, :school_id], unique: true
   end
 end

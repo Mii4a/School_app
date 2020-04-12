@@ -7,6 +7,8 @@ class User < ApplicationRecord
     has_many :passive_relationships, class_name: "UserRelationship", foreign_key: "followed_id"
     has_many :following, through: :active_relationships, source: :followed
     has_many :follower, through: :passive_relationships, source: :follower
+    has_many :retweets, dependent: :destroy
+    has_many :retweeting, through: :retweets, source: :school
     attr_accessor :remember_token, :activation_token, :reset_token
     before_save :downcase_email
     before_create :create_activation_digest
@@ -79,12 +81,23 @@ class User < ApplicationRecord
     end
     
     def password_reset_expired?
-      reset_sent_at < 2.hours.ago
+        reset_sent_at < 2.hours.ago
     end
     
     def feed
-        following_ids = "SELECT followed_id FROM user_relationships WHERE follower_id = :user_id"
-        School.where("user_id IN (#{following_ids}) OR user_id = :user_id", user_id: id)
+        following_ids = "SELECT followed_id FROM user_relationships 
+                         WHERE follower_id = :user_id"
+        retweeting_ids = "SELECT school_id FROM retweets 
+                          WHERE user_id = :user_id"
+        School.where("user_id IN (#{following_ids}) OR 
+                      id IN (#{retweeting_ids}) OR 
+                      user_id = :user_id", user_id: id)
+    end
+    
+    def myfeed
+        retweeting_ids = "SELECT school_id FROM retweets WHERE user_id = :user_id"
+        School.where("id IN (#{retweeting_ids}) OR 
+                      user_id = :user_id", user_id: id).reorder(updated_at: :desc)
     end
     
     def enter(school)
@@ -109,6 +122,18 @@ class User < ApplicationRecord
     
     def followed?(other_user)
         following.include?(other_user)
+    end
+    
+    def retweet(school)
+        retweeting << school
+    end
+    
+    def unretweet(school)
+        retweets.find_by(school_id: school.id).destroy
+    end
+    
+    def retweeted?(school)
+        retweeting.include?(school)
     end
     
     private

@@ -1,0 +1,6 @@
+= form_for(current_user.school_relationships.find_by(school_id: @school.id), html: { method: :delete }, remote: true) do |f|
+  button class="miniforms-button active" type="submit" name="commit"
+    i.material-icons favorite
+    - if @school.students.any?
+      span id="students-count_#{@school.id}" class="miniforms-button_count"
+        = @school.students.count

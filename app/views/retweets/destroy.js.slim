@@ -1,0 +1,2 @@
+| $("#retweet_form").html("#{ escape_javascript(render 'retweets/retweet') }");
+| $("#retweets-count_#{@school.id}").html(#{@school.retweets.count});

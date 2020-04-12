@@ -1,5 +1,5 @@
 div id="enter_form"
   - if current_user.entered?(@school)
-    == render 'schools/graduate'
+    == render 'school_relationships/graduate'
   - else
-    == render 'schools/enter'
+    == render 'school_relationships/enter'

@@ -18,7 +18,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @schools = @user.schools.page(params[:page]).per(5)
+    @schools = @user.myfeed.page(params[:page]).per(10)
     @school_build = current_user.schools.build if logged_in?
     redirect_to root_url and return unless @user.activated?
   end

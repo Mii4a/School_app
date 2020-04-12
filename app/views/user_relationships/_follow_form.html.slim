@@ -1,6 +1,6 @@
 - if logged_in? && !current_user?(@user)
   div id="follow_form" class="follow-form"
     - if current_user.followed?(@user)
-      == render 'users/unfollow'
+      == render 'user_relationships/unfollow'
     - else
-      == render 'users/follow'
+      == render 'user_relationships/follow'
