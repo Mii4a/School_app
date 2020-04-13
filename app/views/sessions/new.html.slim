@@ -1,21 +1,26 @@
   - provide(:title, "ログイン")
   .row
     .col.m8.offset-m2
-      = form_for(:session, url: login_path) do |f|
+      .form
+        .form-header
+          p.form-header_title
+            | #{yield(:title)}
+        .form-container
+          = form_for(:session, url: login_path) do |f|
         
-        = f.label :email, "Eメール"
-        = f.email_field :email
+            = f.label :email, "Eメール"
+            = f.email_field :email
         
-        = f.label :password, "パスワード"
-        = f.password_field :password, placeholder: "パスワード"
-        p = link_to " パスワードを忘れてしまった方はこちら", new_password_reset_path
+            = f.label :password, "パスワード"
+            = f.password_field :password, placeholder: "パスワード"
+            p = link_to " パスワードを忘れてしまった方はこちら", new_password_reset_path
         
-        p
-          label class="checkbox inline active" for="session_remember_me"
-            input name="session[remember_me]" type="hidden" value="0"
-            input type="checkbox" name="session[remember_me]" id="session_remember_me" value="1"
-              span
-               | パスワードを保存する
+            p
+              label class="checkbox inline active" for="session_remember_me"
+                input name="session[remember_me]" type="hidden" value="0"
+                input type="checkbox" name="session[remember_me]" id="session_remember_me" value="1"
+                  span
+                   | パスワードを保存する
         
-        = f.submit "ログイン", class: 'btn waves-effect waves-light right'
-        = link_to "まだ登録していない場合はこちら", signup_path
+            = f.submit "ログイン", class: 'btn waves-effect waves-light right'
+            = link_to "まだ登録していない場合はこちら", signup_path

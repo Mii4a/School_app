@@ -1,6 +1,6 @@
 li id="school-#{ school.id }"
     .schools-user
-      = link_to gravatar_for(school.user, size: 50), school.user
+      = link_to image_tag(school.user.user_image.url, class: "school-user_image"), school.user
       = link_to school.user.name, school.user, class: "schools-user_name"
       span.school-user_timestamp
         = time_ago_in_words(school.created_at)

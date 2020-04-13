@@ -1,12 +1,13 @@
-class PictureUploader < CarrierWave::Uploader::Base
+class UserImageUploader < CarrierWave::Uploader::Base
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
+   # It is necessary to resize and change the format of image
   include CarrierWave::MiniMagick
-  process resize_to_fill: [400, 200]
 
   # Choose what kind of storage to use for this uploader:
   storage :file
   # storage :fog
+
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
   def store_dir
@@ -14,23 +15,33 @@ class PictureUploader < CarrierWave::Uploader::Base
   end
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
-  # def default_url(*args)
-  #   # For Rails 3.1+ asset pipeline compatibility:
-  #   # ActionController::Base.helpers.asset_path("fallback/" + [version_name, "default.png"].compact.join('_'))
-  #
-  #   "/images/fallback/" + [version_name, "default.png"].compact.join('_')
-  # end
+  def default_url(*args)
+    # For Rails 3.1+ asset pipeline compatibility:
+    # ActionController::Base.helpers.asset_path( [version_name, "default_user.png"].compact.join('_'))
+  
+    "/images/" + [version_name, "default_user.png"].compact.join('_')
+  end
 
   # Process files as they are uploaded:
-  # process scale: [200, 300]
+  # To restrict the upper limit of images in 640x480
   #
   # def scale(width, height)
   #   # do something
   # end
+  process resize_to_fill: [400, 200]
 
   # Create different versions of your uploaded files:
+  # An setting to generate the thumbnail
   version :thumb do
-    process resize_to_fit: [50, 50]
+    process :resize_to_fit => [300, 300]
+  end
+  
+  version :thumb50 do
+    process :resize_to_fit => [50, 50]
+  end
+  
+  version :thumb20 do
+    process :resize_to_fit => [20, 20]
   end
 
   # Add a white list of extensions which are allowed to be uploaded.

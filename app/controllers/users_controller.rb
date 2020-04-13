@@ -72,13 +72,13 @@ class UsersController < ApplicationController
   
   def following
     @user = User.find(params[:id])
-    @schools = @user.following.page(params[:page]).per(20)
+    @users = @user.following.page(params[:page]).per(20)
     @school_build = @user.schools.build
   end
   
   def followers
     @user = User.find(params[:id])
-    @schools = @user.followers.page(params[:page]).per(20)
+    @users = @user.followers.page(params[:page]).per(20)
     @school_build = @user.schools.build
   end
     

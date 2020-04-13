@@ -17,8 +17,8 @@
         i.material-icons people
       .stats-container
         a href="#{followers_user_path(@user)}"
-          strong id="follower" class="stats-count"
-            = @user.follower.count
+          strong id="followers" class="stats-count"
+            = @user.followers.count
           | フォロワー
         a href="#{following_user_path(@user)}"
           strong id="following" class="stats-count"

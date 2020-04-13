@@ -28,6 +28,7 @@ gem 'bootsnap'
 gem 'materialize-sass', '~> 1.0.0'
 gem 'material_icons' 
 gem 'rails-i18n', '~> 5.1' # For 5.0.x, 5.1.x and 5.2.x
+gem 'rmagick'
 
 group :production do
   gem 'pg', '0.20.0'

@@ -6,12 +6,13 @@ class User < ApplicationRecord
     has_many :active_relationships, class_name: "UserRelationship", foreign_key: "follower_id", dependent: :destroy
     has_many :passive_relationships, class_name: "UserRelationship", foreign_key: "followed_id"
     has_many :following, through: :active_relationships, source: :followed
-    has_many :follower, through: :passive_relationships, source: :follower
+    has_many :followers, through: :passive_relationships, source: :follower
     has_many :retweets, dependent: :destroy
     has_many :retweeting, through: :retweets, source: :school
     attr_accessor :remember_token, :activation_token, :reset_token
     before_save :downcase_email
     before_create :create_activation_digest
+    mount_uploader :user_image, UserImageUploader
     validates :name, presence: true,
                      length:   { maximum: 25,
                                  message: '25文字以下で入力してください' }

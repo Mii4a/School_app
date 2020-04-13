@@ -1,0 +1,6 @@
+- provide(:title, "フォロー")
+.row
+  == render 'shared/sidebar'
+  div.col.s8
+    - if @users.any?
+      == render 'shared/stats_users'
