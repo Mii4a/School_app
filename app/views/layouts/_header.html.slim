@@ -11,6 +11,8 @@ header.header
             i.material-icons home
           li = link_to help_path, alt: "ヘルプに遷移する" do
             i.material-icons help
+          li = link_to schools_path do
+            i.material-icons business
           - if logged_in?
             li
               a href="#!" class="dropdown-trigger" data-target="header-dropdown"

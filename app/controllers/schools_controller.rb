@@ -46,6 +46,14 @@ before_action :correct_user, only: [:destroy, :edit, :update]
     end
   end
   
+  def index
+    @schools = School.all.page(params[:page]).per(20)
+    if logged_in?
+      @user = current_user
+      @school_build = current_user.schools.build
+    end
+  end
+  
   private
   
   def school_params

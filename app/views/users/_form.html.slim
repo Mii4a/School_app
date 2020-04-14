@@ -21,4 +21,8 @@
         = f.label :password_confirmation, "パスワード（確認）"
         = f.password_field :password_confirmation
         
+        span.picture
+          = f.label :picture, "アイコン"
+          = f.file_field :picture
+        
         = f.submit "保存する", class: "btn waves-effect waves-light right"

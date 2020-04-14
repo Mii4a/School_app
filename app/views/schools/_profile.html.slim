@@ -1,6 +1,6 @@
 .school
   .school-user
-    = link_to gravatar_for(@school.user, size: 50), @school.user
+    = link_to image_tag(@school.user.user_image.url, class: "school-user_image"), @school.user
     = link_to @school.user.name, @school.user, class: "school-user_name"
     span.school-user_timestamp
       = time_ago_in_words(@school.created_at)
@@ -34,6 +34,4 @@
     p.school-container_content
       = @school.content
     == render 'shared/school_chat_form'
-  .miniforms
-    == render 'school_relationships/enter_form'
-    == render 'retweets/retweet_form'
+  == render 'shared/miniforms'

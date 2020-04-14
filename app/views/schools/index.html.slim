@@ -1,0 +1,5 @@
+- provide(:title, "学校一覧")
+.row
+  == render 'shared/sidebar'
+  div class="col s8 schools" id="schools"
+    == render @schools

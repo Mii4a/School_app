@@ -1,6 +1,6 @@
 .school-modal
   a class="wave-effect waves-light btn modal-trigger" href="#school-modal_form"
-    | 学校を作る
+    | 投稿する
 div id="school-modal_form" class="modal"
   = form_for(@school_build) do |f|
     .modal-content
@@ -24,15 +24,15 @@ div id="school-modal_form" class="modal"
         | access_time
       p = Time.current.to_date
       p 
-        = gravatar_for(current_user, size: 25)
-        | 学校長 #{current_user.name}
+        = image_tag(current_user.user_image.url, class: "school-user_image")
+        | #{current_user.name}
       button class="btn waves-effect waves-light" type="submit" name="commit"
         | 提出する
         i class="material-icons right"
           | send
       
 javascript:
-  $('#schook_picture').bind('change', function(){
+  $('#school_picture').bind('change', function(){
     var size_in_megabytes = this.file[0].size/1024/1024;
     if (size_in_megabytes > 5) {
       alert('5MB以上の写真は使用できません');
